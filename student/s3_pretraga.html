@@ -1,0 +1,147 @@
+<!-- Autor: Aleksandra Stojanović 2023/0234 -->
+<!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly &mdash; Pretraga nekretina</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="index.html">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="s1_lista.html">Tačke od interesa <span class="pill">3</span></a>
+    <a href="s2_konfiguracija.html">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="s3_pretraga.html" class="active">Nekretine</a>
+    <a href="s4_lista.html">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="s5_pregled.html">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="index.html">← Prototip -</a> Korak 1/2</div>
+    <div class="page-head">
+      <div>
+        <h1>Pretraga nekretina</h1>
+        <p>Filtrirajte oglase prema realnom vremenu putovanja do vaših tačaka od interesa.</p>
+      </div>
+      <div class="btn-row">
+        <span class="badge badge-info">128 oglasa ukupno</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:320px 1fr;gap:18px">
+      <aside class="card">
+        <h3 style="margin-top:0">Napredni filter</h3>
+        <form>
+          <div class="field">
+            <label>Ciljna tačka od interesa</label>
+            <select>
+              <option selected>ETF Beograd</option>
+              <option>SC "11. April"</option>
+              <option>Maxi - Vračar</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Maksimalno vreme putovanja</label>
+            <div style="display:flex;align-items:center;gap:10px">
+              <input type="range" min="5" max="90" value="30" style="flex:1;accent-color:var(--accent)">
+              <span style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--accent);min-width:60px;text-align:right">30 min</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Tip prevoza</label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <label style="flex:1;min-width:90px;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:13px">
+                <input type="radio" name="tp" style="margin-right:4px"> Pešice
+              </label>
+              <label style="flex:1;min-width:90px;border:1px solid var(--accent);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:13px;background:var(--accent-soft);color:var(--accent);font-weight:600">
+                <input type="radio" name="tp" checked style="margin-right:4px"> Javni
+              </label>
+              <label style="flex:1;min-width:90px;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:13px">
+                <input type="radio" name="tp" style="margin-right:4px"> Automobil
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Opseg cene (€/mesec)</label>
+            <div class="row-2">
+              <input type="text" placeholder="Od" value="200">
+              <input type="text" placeholder="Do" value="400">
+            </div>
+          </div>
+
+          <div class="modal-note" style="font-size:12.5px">
+            Sistem koristi Google Maps API za proračun realnog vremena putovanja u zavisnosti od doba dana.
+          </div>
+
+          <div class="btn-row" style="margin-top:14px">
+            <a class="btn btn-primary" href="s3_filter.html" style="flex:1;justify-content:center">Primeni filter</a>
+          </div>
+          <div class="btn-row" style="margin-top:8px">
+            <a class="btn btn-ghost btn-sm" href="s3_pretraga.html" style="flex:1;justify-content:center">Ukloni filter</a>
+          </div>
+        </form>
+      </aside>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:360px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:36px;position:relative">
+          🗺
+          <div style="position:absolute;top:25%;left:35%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:40%;left:55%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:55%;left:30%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:65%;left:70%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:50%;left:50%;color:var(--danger);font-size:32px;transform:translate(-50%,-50%);filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">⭐</div>
+        </div>
+        <div style="padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft)">
+          <span><span style="color:var(--danger)">⭐</span> Ciljna tačka &nbsp; <span style="color:var(--accent)">📍</span> Dostupne nekretine (128)</span>
+          <span><strong>Prikazane sve lokacije</strong> &mdash; primenite filter za preciznije rezultate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tight" style="margin-top:18px">
+      <h3 style="margin-top:0;margin-bottom:12px">Svi oglasi</h3>
+      <table class="data">
+        <thead><tr><th>ID</th><th>Adresa</th><th>Površina</th><th>Cena</th><th>Nestly Score</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>#1421</td><td>Njegoševa 42, Vračar</td><td>45m²</td><td>350 €</td>
+            <td><span class="badge badge-ok">87%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr>
+            <td>#1420</td><td>Bul. kr. Aleksandra 78, Zvezdara</td><td>28m²</td><td>250 €</td>
+            <td><span class="badge badge-ok">82%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr>
+            <td>#1419</td><td>Takovska 22, Palilula</td><td>38m²</td><td>300 €</td>
+            <td><span class="badge badge-info">79%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr>
+            <td>#1418</td><td>Blok 45, Novi Beograd</td><td>65m²</td><td>400 €</td>
+            <td><span class="badge badge-info">71%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr style="opacity:.6">
+            <td>#1417</td><td>Vojislava Ilića 12, Konjarnik</td><td>32m²</td><td>220 €</td>
+            <td><span class="badge badge-mute">58%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:12px 4px 4px;font-size:13px;color:var(--ink-soft)">Prikazano 5 od 128 oglasa.</div>
+    </div>
+  </main>
+</div>
+</body></html>

@@ -1,0 +1,105 @@
+<!-- Autor: Aleksandra Stojanović 2023/0234 -->
+<!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly &mdash; Zahtevi za uparivanje</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="index.html">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="s1_lista.html">Tačke od interesa <span class="pill">3</span></a>
+    <a href="s2_konfiguracija.html">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="s3_pretraga.html">Nekretine</a>
+    <a href="s4_lista.html" class="active">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="s5_pregled.html">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="s4_lista.html">← Cimeri -</a> Zahtevi</div>
+    <div class="page-head">
+      <div>
+        <h1>Zahtevi za uparivanje</h1>
+        <p>Pregled primljenih i poslatih zahteva. Komunikacija se otključava nakon obostrano prihvaćenog zahteva.</p>
+      </div>
+    </div>
+
+    <div class="card tight">
+      <h3 style="margin:0 0 12px">Primljeni zahtevi <span class="badge badge-pending" style="margin-left:6px">1 novi</span></h3>
+      <table class="data">
+        <thead><tr><th>Pošiljalac</th><th>Kompatibilnost</th><th>Poruka</th><th>Primljeno</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#b4541a">AA</div>
+                <div>
+                  <div style="font-weight:600">Ana A.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; ETF</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-ok">87%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">&bdquo;Zdravo, videla sam da imamo slične navike&hellip;&ldquo;</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 3h</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="s4_profil.html">Profil</a>
+                <a class="btn btn-primary btn-sm" href="s4_prihvacen.html">Prihvati</a>
+                <a class="btn btn-ghost btn-sm" href="s4_odbijen.html" style="color:var(--danger)">Odbij</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card tight" style="margin-top:16px">
+      <h3 style="margin:0 0 12px">Poslati zahtevi</h3>
+      <table class="data">
+        <thead><tr><th>Primalac</th><th>Kompatibilnost</th><th>Poslato</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#2f5d4f">NN</div>
+                <div>
+                  <div style="font-weight:600">Nikola N.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; PMF</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-ok">81%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 2 dana</td>
+            <td><span class="badge badge-pending">Čeka odgovor</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="s4_profil.html">Profil →</a></td>
+          </tr>
+          <tr style="opacity:.65">
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#5b5b58">MP</div>
+                <div>
+                  <div style="font-weight:600">Mina P.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; FASPER</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-info">72%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 5 dana</td>
+            <td><span class="badge badge-rej">Odbijen</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body></html>

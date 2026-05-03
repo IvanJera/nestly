@@ -1,0 +1,145 @@
+<!-- Autor: Aleksandra Stojanović 2023/0234 -->
+<!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly &mdash; Konfiguracija Nestly Score-a</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .slider-row{display:grid;grid-template-columns:180px 1fr 50px;gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+  .slider-row:last-child{border-bottom:none}
+  .slider-row .lbl{font-size:14px;font-weight:500}
+  .slider-row input[type=range]{width:100%;accent-color:var(--accent)}
+  .slider-row .val{font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--accent);text-align:right}
+  .dist-bar{display:flex;height:24px;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin-top:8px}
+  .dist-seg{display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:500}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="index.html">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="s1_lista.html">Tačke od interesa <span class="pill">3</span></a>
+    <a href="s2_konfiguracija.html" class="active">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="s3_pretraga.html">Nekretine</a>
+    <a href="s4_lista.html">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="s5_pregled.html">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="index.html">← Prototip -</a> Korak 1/2</div>
+    <div class="page-head">
+      <div>
+        <h1>Konfiguracija Nestly Score-a</h1>
+        <p>Podesite koliko je svaki faktor važan za vaš izbor nekretine. Oglasi se rangiraju prema vašim preferencijama.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px">
+      <div class="card">
+        <h2>Težinski faktori</h2>
+        <p style="color:var(--ink-soft);margin-top:-6px;font-size:13.5px">Vrednosti se automatski normalizuju na 100% pri čuvanju.</p>
+
+        <form style="margin-top:14px">
+          <div class="slider-row">
+            <div class="lbl">Blizina fakulteta/posla</div>
+            <input type="range" min="0" max="100" value="30">
+            <div class="val">30%</div>
+          </div>
+          <div class="slider-row">
+            <div class="lbl">Pristup javnom prevozu</div>
+            <input type="range" min="0" max="100" value="20">
+            <div class="val">20%</div>
+          </div>
+          <div class="slider-row">
+            <div class="lbl">Kvalitet vazduha</div>
+            <input type="range" min="0" max="100" value="15">
+            <div class="val">15%</div>
+          </div>
+          <div class="slider-row">
+            <div class="lbl">Sportski centri</div>
+            <input type="range" min="0" max="100" value="10">
+            <div class="val">10%</div>
+          </div>
+          <div class="slider-row">
+            <div class="lbl">Slobodno vreme</div>
+            <input type="range" min="0" max="100" value="10">
+            <div class="val">10%</div>
+          </div>
+          <div class="slider-row">
+            <div class="lbl">Tišina u kvartu</div>
+            <input type="range" min="0" max="100" value="10">
+            <div class="val">10%</div>
+          </div>
+          <div class="slider-row">
+            <div class="lbl">Dostupnost parkinga</div>
+            <input type="range" min="0" max="100" value="5">
+            <div class="val">5%</div>
+          </div>
+
+          <div class="modal-note" style="margin-top:20px">
+            <strong>Zbir: 100%</strong> &mdash; vaša konfiguracija je spremna za čuvanje.
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="s2_potvrda.html">Sačuvaj podešavanja</a>
+            <a class="btn btn-ghost" href="s2_konfiguracija.html">Resetuj na podrazumevano</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Pregled raspodele</h3>
+        <p style="color:var(--ink-soft);font-size:13px;margin-top:-4px">Vizuelni prikaz trenutne raspodele težina.</p>
+
+        <div class="dist-bar" style="margin-bottom:14px">
+          <div class="dist-seg" style="width:30%;background:#2f5d4f">30%</div>
+          <div class="dist-seg" style="width:20%;background:#4a7a6b">20%</div>
+          <div class="dist-seg" style="width:15%;background:#6a9587">15%</div>
+          <div class="dist-seg" style="width:10%;background:#8aafa1">10%</div>
+          <div class="dist-seg" style="width:10%;background:#a5c5b8">10%</div>
+          <div class="dist-seg" style="width:10%;background:#bfd6cb">10%</div>
+          <div class="dist-seg" style="width:5%;background:#d6e6de;color:var(--ink)">5</div>
+        </div>
+
+        <dl class="kv" style="font-size:13px;grid-template-columns:16px 1fr auto;column-gap:10px;row-gap:10px">
+          <dt style="background:#2f5d4f;height:14px;border-radius:3px;align-self:center"></dt>
+          <dd>Blizina fakulteta/posla</dd>
+          <dd style="text-align:right;font-weight:600">30%</dd>
+
+          <dt style="background:#4a7a6b;height:14px;border-radius:3px;align-self:center"></dt>
+          <dd>Pristup javnom prevozu</dd>
+          <dd style="text-align:right;font-weight:600">20%</dd>
+
+          <dt style="background:#6a9587;height:14px;border-radius:3px;align-self:center"></dt>
+          <dd>Kvalitet vazduha</dd>
+          <dd style="text-align:right;font-weight:600">15%</dd>
+
+          <dt style="background:#8aafa1;height:14px;border-radius:3px;align-self:center"></dt>
+          <dd>Sportski centri</dd>
+          <dd style="text-align:right;font-weight:600">10%</dd>
+
+          <dt style="background:#a5c5b8;height:14px;border-radius:3px;align-self:center"></dt>
+          <dd>Slobodno vreme</dd>
+          <dd style="text-align:right;font-weight:600">10%</dd>
+
+          <dt style="background:#bfd6cb;height:14px;border-radius:3px;align-self:center"></dt>
+          <dd>Tišina u kvartu</dd>
+          <dd style="text-align:right;font-weight:600">10%</dd>
+
+          <dt style="background:#d6e6de;height:14px;border-radius:3px;align-self:center;border:1px solid var(--line)"></dt>
+          <dd>Parking</dd>
+          <dd style="text-align:right;font-weight:600">5%</dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+</div>
+</body></html>

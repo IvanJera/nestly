@@ -1,0 +1,102 @@
+<!-- Ivan Jerinic-->
+ <!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly Admin — Nova tačka od interesa</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="index.html">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="a1_lista.html">Oglasi <span class="pill">14</span></a>
+    <a href="a3_baza.html" class="active">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="a2_korisnici.html">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="a4_logovi.html">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="a3_baza.html">← Tačke od interesa -</a> Korak 2/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Nova tačka od interesa</h1>
+        <p>Dodavanje nove infrastrukturne tačke u bazu. Nakon dodavanja, koristi se odmah u Nestly Score izračunavanjima.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:18px">
+      <div class="card">
+        <h2>Podaci o tački</h2>
+        <form>
+          <div class="row-2">
+            <div class="field">
+              <label>Naziv *</label>
+              <input type="text" value="Linija 26 — Konjarnik">
+            </div>
+            <div class="field">
+              <label>Kategorija *</label>
+              <select>
+                <option>Fakultet</option>
+                <option selected>Prevoz (autobus/tramvaj)</option>
+                <option>Park</option>
+                <option>Sport</option>
+                <option>Bolnica</option>
+                <option>Trgovinski centar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Adresa *</label>
+            <input type="text" value="Ustanička bb, Konjarnik, Beograd">
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label>Latituda *</label>
+              <input type="text" value="44.7912">
+            </div>
+            <div class="field">
+              <label>Longituda *</label>
+              <input type="text" value="20.5108">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Dodatne informacije</label>
+            <textarea placeholder="Opciono: radno vreme, frekvencija polazaka, beleške...">Polasci na svakih 8–12 minuta u špicu, na 20 minuta vikendom.</textarea>
+          </div>
+
+          <div class="modal-note">
+            <strong>Validacija koordinata:</strong> Sistem će proveriti da li koordinate odgovaraju unetoj adresi pre snimanja.
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="a3_potvrda.html">+ Dodaj u bazu</a>
+            <a class="btn btn-ghost" href="a3_baza.html">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Pregled na mapi</h3>
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:280px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;position:relative">
+          🗺
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);color:var(--danger);font-size:32px">📍</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-soft);margin-top:10px">
+          <strong>44.7912° N, 20.5108° E</strong><br>
+          Konjarnik, Beograd
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+</body></html>

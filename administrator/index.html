@@ -1,0 +1,70 @@
+<!-- Ivan Jerinic-->
+ <!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nestly - Admin prototip</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <nav class="topnav"><a href="#" class="active">Prototip</a><a href="#">Dokumentacija</a></nav>
+  <div class="user-chip"><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="index.html" class="active">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="a1_lista.html">Oglasi <span class="pill">14</span></a>
+    <a href="a3_baza.html">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="a2_korisnici.html">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="a4_logovi.html">Sistemski logovi</a>
+  </aside>
+
+  <main class="main">
+    <h1 style="font-size:36px">Nestly - administratorski prototip</h1>
+    
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div class="card">
+        <h2>1. Verifikacija oglasa</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Pregled i odobravanje novih oglasa na platformi.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="a1_lista.html">Pokreni proces</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Moderacija korisnika</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Upravljanje prijavama i suspenzijama naloga.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="a2_korisnici.html">Lista korisnika</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3. Tačke od interesa</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Ažuriranje baze za Nestly Score algoritam.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="a3_baza.html">Baza POI</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>4. Sistemski logovi</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Praćenje rada sistema i dijagnostika grešaka.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="a4_logovi.html">Pregled logova</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- Ivan Jerinic-->
+ <!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly Admin — Korisnik suspendovan</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="index.html">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="a1_lista.html">Oglasi <span class="pill">14</span></a>
+    <a href="a3_baza.html">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="a2_korisnici.html" class="active">Korisnici <span class="pill">1</span></a>
+    <h4>Sistem</h4>
+    <a href="a4_logovi.html">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="index.html">← Prototip -</a> Korak 3/3</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:560px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff5ec;color:var(--warn);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">⏸</div>
+      <h1 style="font-size:26px;margin:0">Nalog suspendovan na 7 dana</h1>
+      <p style="color:var(--ink-soft);max-width:440px;margin:8px auto 22px">
+        Nalog korisnika <strong>Jovan Marković</strong> (#1842) je privremeno suspendovan. Tokom ovog perioda korisnik ne može da se prijavi, a njegovi oglasi su sakriveni.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:14px;text-align:left;margin-bottom:18px;font-size:13px">
+        <strong>Detalji akcije</strong>
+        <dl class="kv" style="font-size:13px;margin-top:8px">
+          <dt>Razlog</dt><dd>Više potvrđenih prijava: lažne fotografije i nedolično ponašanje.</dd>
+          <dt>Trajanje</dt><dd>7 dana (ističe 22.4.2026)</dd>
+          <dt>Sakriveno oglasa</dt><dd>4</dd>
+          <dt>Email obaveštenje</dt><dd>poslato na jmarkovic@gmail.com</dd>
+        </dl>
+      </div>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:14px;text-align:left;margin-bottom:24px;font-size:13px">
+        <strong>Akcija zabeležena u log:</strong><br>
+        <span style="font-family:'JetBrains Mono',Menlo,monospace;color:var(--ink-soft)">[15.04.2026 15:01:44] admin.user_suspended user=1842 by=ivan.j duration=7d</span>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="a2_korisnici.html">← Lista korisnika</a>
+        <a class="btn btn-ghost" href="index.html">Komandna tabla</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body></html>

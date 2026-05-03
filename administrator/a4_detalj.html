@@ -1,0 +1,113 @@
+<!-- Ivan Jerinic-->
+ <!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly Admin — Detalj loga</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="index.html">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="a1_lista.html">Oglasi <span class="pill">14</span></a>
+    <a href="a3_baza.html">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="a2_korisnici.html">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="a4_logovi.html" class="active">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="a4_filter.html">← Logovi (greške) -</a> Korak 3/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Detalj loga #LE-29841</h1>
+        <p>Greška algoritma za rangiranje · 15.04.2026 14:41:02</p>
+      </div>
+      <span class="badge badge-rej" style="font-size:13px;padding:6px 12px">ERROR</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:18px">
+      <div>
+        <div class="card">
+          <h2>Osnovne informacije</h2>
+          <dl class="kv">
+            <dt>ID unosa</dt><dd>LE-29841</dd>
+            <dt>Vreme</dt><dd>15.04.2026 14:41:02.314 (UTC+2)</dd>
+            <dt>Modul</dt><dd>nestly_score</dd>
+            <dt>Funkcija</dt><dd>compute_score(user_id, listing_id)</dd>
+            <dt>Korisnik</dt><dd>#3014 (anonim_3014@etf.bg.ac.rs)</dd>
+            <dt>Sesija</dt><dd>sess_8a4b21f7</dd>
+            <dt>Server</dt><dd>nestly-api-02</dd>
+          </dl>
+        </div>
+
+        <div class="card">
+          <h2>Stack trace</h2>
+<pre class="log" style="max-height:280px">
+<span class="err">ZeroDivisionError</span>: division by zero
+  File "score/algorithm.py", line 142, in compute_score
+    weighted = sum_weights / total_weight_factor
+  File "score/algorithm.py", line 89, in _normalize
+    return [w / sum(weights) for w in weights]
+  File "api/views.py", line 217, in listing_search
+    score = compute_score(request.user.id, listing.id)
+  File "django/core/handlers/base.py", line 234, in get_response
+    response = wrapped_callback(request, *callback_args)
+
+Local variables at error:
+  user_id      = 3014
+  listing_id   = 2841
+  preferences  = {}                  <span class="warn"># Prazna mapa preferencija!</span>
+  weights      = []                  <span class="warn"># Prazna lista težina!</span>
+  sum_weights  = 0
+</pre>
+        </div>
+
+        <div class="card">
+          <h2>Slični unosi (zadnjih 7 dana)</h2>
+          <table class="data">
+            <thead><tr><th>Vreme</th><th>Korisnik</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>15.04 14:41</td><td>#3014</td><td><span class="badge badge-rej">ERROR (ovaj)</span></td></tr>
+              <tr><td>15.04 11:22</td><td>#2104</td><td><span class="badge badge-rej">ERROR</span></td></tr>
+              <tr><td>15.04 02:11</td><td>#4011</td><td><span class="badge badge-rej">ERROR</span></td></tr>
+              <tr><td>13.04 19:08</td><td>#2871</td><td><span class="badge badge-rej">ERROR</span></td></tr>
+              <tr><td>11.04 16:55</td><td>#1958</td><td><span class="badge badge-rej">ERROR</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Posledice</h3>
+          <p style="font-size:14px;color:var(--ink-soft);margin:0 0 10px">
+            Sistem je uspešno izvršio fallback na podrazumevane težinske faktore. Korisnik je dobio rezultat pretrage, ali bez personalizacije.
+          </p>
+          <span class="badge badge-pending">Niska ozbiljnost</span>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Akcije</h3>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:8px">⚑ Označi kao analizirano</button>
+          <button class="btn btn-warn" style="width:100%;justify-content:center;margin-bottom:8px">📋 Prijavi tim za razvoj</button>
+          <button class="btn btn-ghost" style="width:100%;justify-content:center">⤓ Preuzmi izveštaj</button>
+        </div>
+
+        <div class="card tight">
+          <h3 style="margin-top:0">Predložena radnja</h3>
+          <p style="font-size:13px;color:var(--ink-soft);margin:0">
+            Dodati validaciju u <code>compute_score()</code> da pre poziva proveri da li korisnik ima podešene preferencije.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+</body></html>

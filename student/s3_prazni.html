@@ -1,0 +1,67 @@
+<!-- Autor: Aleksandra Stojanović 2023/0234 -->
+<!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly &mdash; Nema rezultata</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="index.html">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="s1_lista.html">Tačke od interesa <span class="pill">3</span></a>
+    <a href="s2_konfiguracija.html">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="s3_pretraga.html" class="active">Nekretine</a>
+    <a href="s4_lista.html">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="s5_pregled.html">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="s3_pretraga.html">← Pretraga nekretina -</a> Bez rezultata</div>
+    <div class="page-head">
+      <div>
+        <h1>Nema dostupnih nekretina</h1>
+        <p>Nijedna nekretina ne zadovoljava zadate kriterijume filtera.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost btn-sm" href="s3_pretraga.html">← Izmeni filter</a>
+      </div>
+    </div>
+
+    <div class="modal-note" style="margin-bottom:18px">
+      <strong>Primenjeni filter:</strong> do <strong>10 min</strong> pešice od <strong>ETF Beograd</strong>, cena <strong>150&ndash;200 €</strong>.
+      Pronađeno <strong>0 od 128</strong> oglasa.
+    </div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:620px;margin:20px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#ece8e0;color:var(--ink-soft);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">∅</div>
+      <h2 style="margin:0">Nijedna nekretina ne zadovoljava kriterijume</h2>
+      <p style="color:var(--ink-soft);max-width:480px;margin:8px auto 22px">
+        Pokušajte da povećate maksimalno vreme putovanja, promenite tip prevoza ili proširite cenovni opseg.
+      </p>
+
+      <div style="text-align:left;max-width:440px;margin:0 auto 22px">
+        <h3 style="margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)">Predlozi</h3>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.8;color:var(--ink-soft)">
+          <li>Povećajte maksimalno vreme putovanja sa 10 na 20 minuta</li>
+          <li>Promenite tip prevoza sa &bdquo;pešice&ldquo; na &bdquo;javni prevoz&ldquo;</li>
+          <li>Proširite cenovni opseg na 150&ndash;300 €</li>
+          <li>Pokušajte drugu tačku od interesa</li>
+        </ul>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="s3_pretraga.html">Izmeni filter</a>
+        <a class="btn btn-ghost" href="s3_pretraga.html">Prikaži sve oglase</a>
+      </div>
+    </div>
+  </main>
+</div>
+</body></html>

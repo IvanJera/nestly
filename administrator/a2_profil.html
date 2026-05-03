@@ -1,0 +1,115 @@
+<!-- Ivan Jerinic-->
+ <!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly Admin — Profil korisnika</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="index.html">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="a1_lista.html">Oglasi <span class="pill">14</span></a>
+    <a href="a3_baza.html">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="a2_korisnici.html" class="active">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="a4_logovi.html">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="a2_korisnici.html">← Korisnici -</a> Korak 2/3</div>
+
+    <div class="page-head">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div class="avatar" style="width:64px;height:64px;font-size:22px;background:var(--warn)">JM</div>
+        <div>
+          <h1 style="margin:0">Jovan Marković</h1>
+          <p style="margin:4px 0 0">Stanodavac · ID #1842 · jmarkovic@gmail.com · član od mar 2025</p>
+        </div>
+      </div>
+      <span class="badge badge-pending" style="font-size:13px;padding:6px 12px">Pod istragom · 3 prijave</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:18px">
+      <div>
+        <div class="card">
+          <h2>Prijave korisnika</h2>
+          <table class="data">
+            <thead><tr><th>Datum</th><th>Prijavio</th><th>Razlog</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>11.4.2026</td><td>Anonimni student</td>
+                <td>Lažne fotografije u oglasu #2780</td>
+                <td><span class="badge badge-pending">Otvoreno</span></td>
+              </tr>
+              <tr>
+                <td>8.4.2026</td><td>Marija N.</td>
+                <td>Tražio depozit pre obilaska stana</td>
+                <td><span class="badge badge-pending">Otvoreno</span></td>
+              </tr>
+              <tr>
+                <td>2.4.2026</td><td>Stefan Đ.</td>
+                <td>Neprimereno ponašanje u poruci</td>
+                <td><span class="badge badge-pending">Otvoreno</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h2>Aktivnost</h2>
+          <dl class="kv">
+            <dt>Aktivni oglasi</dt><dd>4</dd>
+            <dt>Ukupno oglasa</dt><dd>9</dd>
+            <dt>Poslate poruke (30d)</dt><dd>27</dd>
+            <dt>Poslednja aktivnost</dt><dd>danas, 09:14</dd>
+            <dt>IP adresa (poslednja)</dt><dd>178.222.84.17 (Beograd)</dd>
+          </dl>
+        </div>
+
+        <div class="card">
+          <h2>Aktivni oglasi korisnika</h2>
+          <table class="data">
+            <tr><td>#2780 · Cara Lazara 14</td><td>650 €</td><td><a href="#" class="btn btn-ghost btn-sm">Otvori</a></td></tr>
+            <tr><td>#2654 · Bulevar 88a</td><td>540 €</td><td><a href="#" class="btn btn-ghost btn-sm">Otvori</a></td></tr>
+            <tr><td>#2511 · Cetinjska 22</td><td>420 €</td><td><a href="#" class="btn btn-ghost btn-sm">Otvori</a></td></tr>
+            <tr><td>#2409 · Krunska 9</td><td>500 €</td><td><a href="#" class="btn btn-ghost btn-sm">Otvori</a></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Akcije moderacije</h3>
+          <button class="btn btn-warn" style="width:100%;justify-content:center;margin-bottom:8px">⚠ Pošalji upozorenje</button>
+          <a class="btn btn-warn" href="a2_potvrda.html" style="width:100%;justify-content:center;margin-bottom:8px">⏸ Suspenduj na 7 dana</a>
+          <button class="btn btn-danger" style="width:100%;justify-content:center;margin-bottom:8px">⏸ Trajna suspenzija</button>
+          <button class="btn btn-danger" style="width:100%;justify-content:center;margin-bottom:14px">✕ Obriši nalog</button>
+
+          <div class="field">
+            <label>Razlog akcije</label>
+            <textarea placeholder="Obavezno za suspenziju ili brisanje. Korisnik će dobiti email." style="min-height:80px">Više potvrđenih prijava: lažne fotografije i nedolično ponašanje.</textarea>
+          </div>
+
+          <button class="btn btn-ghost" style="width:100%;justify-content:center">↻ Odbaci sve prijave</button>
+        </div>
+
+        <div class="card tight">
+          <h3 style="margin-top:0">Istorija moderacije</h3>
+          <div style="font-size:13px;color:var(--ink-soft);line-height:1.7">
+            <strong>2.2.2026</strong> — upozorenje (admin: A. Stojanović)<br>
+            <strong>15.11.2025</strong> — odobreni svi oglasi (8)<br>
+            <strong>3.3.2025</strong> — registracija
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+</body></html>

@@ -1,0 +1,91 @@
+<!-- Ivan Jerinic-->
+ <!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly Admin — Logovi (samo greške)</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="index.html">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="a1_lista.html">Oglasi <span class="pill">14</span></a>
+    <a href="a3_baza.html">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="a2_korisnici.html">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="a4_logovi.html" class="active">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="a4_logovi.html">← Svi logovi -</a> Korak 2/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Logovi — samo greške</h1>
+        <p>Filter aktivan: <span class="badge badge-rej">nivo: ERROR</span> · <span class="badge badge-info">period: 24h</span></p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost btn-sm" href="a4_logovi.html">✕ Ukloni filter</a>
+      </div>
+    </div>
+
+    <div class="card tight">
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fae9e9">
+          <option>ERROR</option>
+        </select>
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+          <option>Svi moduli</option>
+        </select>
+        <input type="text" placeholder="Filter po ključnoj reči…" style="flex:1;min-width:200px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+      </div>
+
+<pre class="log">
+<span class="info">[2026-04-15 14:41:02]</span> <span class="err">ERROR</span> nestly_score  division_by_zero user=3014 reason="empty_preference_vector"
+                                       └─ posledica: fallback_to_default_weights
+                                       └─ utiče na: 1 korisnika
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+
+<span class="info">[2026-04-15 14:53:09]</span> <span class="err">ERROR</span> geo           gmaps_api timeout origin=44.7895,20.5025 dest=ETF retry=1
+                                       └─ rešeno automatski (retry_success u 14:53:14)
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+
+<span class="info">[2026-04-15 14:56:25]</span> <span class="err">ERROR</span> auth          rate_limit_triggered ip=92.184.11.4 endpoint=/login
+                                       └─ uzrok: 5 neuspešnih pokušaja u 30s
+                                       └─ akcija: IP blokiran na 15 min
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+
+<span class="info">[2026-04-15 11:22:14]</span> <span class="err">ERROR</span> nestly_score  division_by_zero user=2104 reason="empty_preference_vector"
+                                       └─ posledica: fallback_to_default_weights
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+
+<span class="info">[2026-04-15 09:41:08]</span> <span class="err">ERROR</span> messaging     smtp_send_failed to=jmarkovic@gmail.com retry=2
+                                       └─ uzrok: SMTP server timeout
+                                       └─ akcija: poruka u redu za ponovni pokušaj
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+
+<span class="info">[2026-04-15 04:18:30]</span> <span class="err">ERROR</span> backup        s3_upload_failed file=db_snapshot_0418.tar.gz
+                                       └─ uzrok: pristupna prava nedovoljna
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+
+<span class="info">[2026-04-15 02:11:55]</span> <span class="err">ERROR</span> nestly_score  division_by_zero user=4011 reason="empty_preference_vector"
+                                       <a href="a4_detalj.html" style="color:#9bc6e3;text-decoration:underline">[otvori detalje]</a>
+</pre>
+
+      <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:13px;color:var(--ink-soft)">
+        <div>Prikazano 7 od 7 grešaka u poslednjih 24h</div>
+        <div><strong style="color:var(--danger)">Najčešća greška:</strong> division_by_zero u nestly_score (3×)</div>
+      </div>
+    </div>
+
+    <div class="modal-note" style="background:#fff5ec;border-left-color:var(--warn);color:#5e3914">
+      <strong>Preporuka:</strong> Greška <code>division_by_zero</code> u modulu <code>nestly_score</code> javlja se 3 puta danas. Mogući uzrok: korisnici kreiraju nalog ali ne podese preferencije pre prve pretrage. Razmotriti dodavanje validacije pre poziva algoritma.
+    </div>
+  </main>
+</div>
+
+</body></html>

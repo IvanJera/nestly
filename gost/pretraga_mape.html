@@ -1,0 +1,400 @@
+<!-- Milica Miloradovic 0593/2023 -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nestly — Pretraga nekretnina</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+    .search-shell { flex: 1; display: flex; overflow: hidden; }
+
+    /* --- FILTER PANEL --- */
+    .filter-panel {
+      width: 272px; min-width: 272px;
+      background: #efeae0;
+      border-right: 1px solid var(--line);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .filter-head {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .filter-head h2 { font-size: 15px; margin: 0; }
+    .filter-head a { font-size: 12px; color: var(--ink-soft); }
+    .filter-body { padding: 16px 18px; flex: 1; overflow-y: auto; }
+    .filter-body .field { margin-bottom: 14px; }
+    .filter-body .field label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); margin-bottom: 6px; }
+    .filter-body .field input,
+    .filter-body .field select {
+      width: 100%; padding: 8px 11px; border: 1px solid var(--line);
+      border-radius: 8px; font: 400 14px/1 'Inter', sans-serif;
+      background: var(--surface); color: var(--ink);
+    }
+    .filter-body .field input:focus,
+    .filter-body .field select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+    .range-row { display: flex; gap: 8px; }
+    .range-row input { flex: 1; }
+
+    .chip-group { display: flex; flex-wrap: wrap; gap: 5px; }
+    .chip {
+      padding: 4px 10px; border-radius: 99px; font-size: 12.5px; font-weight: 500;
+      border: 1px solid var(--line); background: var(--surface); cursor: pointer;
+      color: var(--ink-soft); transition: .12s; user-select: none;
+    }
+    .chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .chip:hover:not(.on) { border-color: var(--accent); color: var(--accent); }
+
+    .filter-foot { padding: 12px 18px; border-top: 1px solid var(--line); }
+
+    /* --- RESULTS PANEL --- */
+    .results-panel {
+      width: 340px; min-width: 340px;
+      display: flex; flex-direction: column;
+      border-right: 1px solid var(--line);
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .results-head {
+      padding: 13px 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .results-head .r-count { font-size: 13px; color: var(--ink-soft); }
+    .results-head .r-count strong { color: var(--ink); font-weight: 600; }
+    .sort-sel {
+      font: 500 12.5px 'Inter', sans-serif;
+      border: 1px solid var(--line); border-radius: 6px;
+      background: #faf7f0; color: var(--ink-soft);
+      padding: 4px 8px; cursor: pointer;
+    }
+
+    .results-list {
+      flex: 1; overflow-y: auto;
+      padding: 12px 10px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    /* Custom scrollbar */
+    .results-list::-webkit-scrollbar { width: 4px; }
+    .results-list::-webkit-scrollbar-track { background: transparent; }
+    .results-list::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+
+    /* HORIZONTAL CARD */
+    .listing-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow .15s, border-color .15s;
+      text-decoration: none; color: inherit;
+      display: flex; /* horizontal layout */
+      height: 96px;
+    }
+    .listing-card:hover { box-shadow: var(--shadow); text-decoration: none; border-color: #ccc; }
+    .listing-card.sel {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft), var(--shadow);
+    }
+
+    /* thumbnail — fixed width on left */
+    .listing-img {
+      width: 100px; min-width: 100px;
+      height: 100%; flex-shrink: 0;
+    }
+
+    /* info — fills remaining space */
+    .listing-body {
+      padding: 10px 12px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      flex: 1; min-width: 0;
+    }
+    .listing-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
+    .listing-title {
+      font-size: 13px; font-weight: 600; color: var(--ink);
+      line-height: 1.35;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .listing-price {
+      font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600;
+      color: var(--ok); white-space: nowrap;
+    }
+    .listing-price small {
+      font-family: 'Inter', sans-serif; font-size: 10px;
+      font-weight: 400; color: var(--ink-soft);
+    }
+    .listing-meta { font-size: 11.5px; color: var(--ink-soft); line-height: 1.4; }
+    .listing-bottom { display: flex; gap: 5px; align-items: center; }
+    .listing-tag {
+      font-size: 10.5px; font-weight: 500;
+      background: var(--accent-soft); color: var(--accent);
+      padding: 2px 7px; border-radius: 99px;
+      border: 1px solid #bfd4cb;
+    }
+    /* selected accent bar on left edge */
+    .listing-card.sel .listing-img { position: relative; }
+    .listing-card.sel .listing-img::after {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--accent);
+    }
+
+    /* --- MAP --- */
+    .map-area { flex: 1; background: #e8e5de; position: relative; overflow: hidden; }
+    .map-bg {
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.025) 0, rgba(0,0,0,.025) 1px, transparent 1px, transparent 55px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.025) 0, rgba(0,0,0,.025) 1px, transparent 1px, transparent 55px),
+        linear-gradient(160deg, #ddd8cc 0%, #e8e5de 60%, #d4cfc8 100%);
+    }
+    .map-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 12px; color: rgba(0,0,0,.22); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; pointer-events: none; }
+
+    .map-marker {
+      position: absolute;
+      background: var(--accent); color: #fff;
+      padding: 5px 10px; border-radius: 20px;
+      font: 600 12px/1 'Inter', monospace;
+      box-shadow: 0 2px 8px rgba(0,0,0,.22);
+      cursor: pointer; transition: transform .15s, background .15s;
+      border: 2px solid #fff;
+    }
+    .map-marker:hover { transform: scale(1.1); background: #1a1a1a; }
+    .map-marker::after { content: ''; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); border: 4px solid transparent; border-top-color: var(--accent); }
+    .map-marker:hover::after { border-top-color: #1a1a1a; }
+    .map-marker.sel { background: #1a1a1a; }
+    .map-marker.sel::after { border-top-color: #1a1a1a; }
+
+    .map-popup {
+      position: absolute; background: var(--surface);
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 14px 16px; box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      width: 196px; font-size: 13px;
+      top: 27%; left: 40%;
+    }
+    .map-popup::after { content: ''; position: absolute; bottom: -7px; left: 20px; border: 4px solid transparent; border-top-color: var(--surface); filter: drop-shadow(0 1px 0 var(--line)); }
+    .popup-price { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 600; color: var(--ok); }
+    .popup-title { font-weight: 600; font-size: 13.5px; margin: 3px 0 2px; }
+    .popup-meta { color: var(--ink-soft); font-size: 12px; }
+
+    .map-controls { position: absolute; top: 14px; right: 14px; display: flex; flex-direction: column; gap: 2px; }
+    .map-btn { width: 32px; height: 32px; background: var(--surface); border: 1px solid var(--line); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; box-shadow: var(--shadow); }
+    .map-btn:hover { background: #faf7f0; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <nav class="topnav">
+    <a href="pretraga_mape.html" class="active">Pretraži</a>
+    <a href="#">Sačuvano</a>
+    <a href="#">Poruke</a>
+  </nav>
+  <div class="user-chip">
+    <a href="registracija.html" class="btn btn-ghost btn-sm">Prijavi se</a>
+    <a href="registracija.html" class="btn btn-primary btn-sm">Registruj se</a>
+  </div>
+</header>
+
+<div class="search-shell">
+
+  <!-- FILTERI -->
+  <div class="filter-panel">
+    <div class="filter-head">
+      <h2>Filteri</h2>
+      <a href="#">Resetuj</a>
+    </div>
+    <div class="filter-body">
+
+      <div class="field">
+        <label>Lokacija</label>
+        <select>
+          <option>Sve opštine</option>
+          <option>Vračar</option>
+          <option>Zvezdara</option>
+          <option selected>Voždovac</option>
+          <option>Dorćol</option>
+          <option>Novi Sad</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Tip stana</label>
+        <div class="chip-group">
+          <span class="chip on">Svi</span>
+          <span class="chip">Garsonjera</span>
+          <span class="chip">Jednosoban</span>
+          <span class="chip on">Dvosoban</span>
+          <span class="chip">Trosoban+</span>
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:14px">
+        <label>Cena (€/mes)</label>
+        <div class="range-row">
+          <input type="number" placeholder="Od" value="200">
+          <input type="number" placeholder="Do" value="600">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Površina (m²)</label>
+        <div class="range-row">
+          <input type="number" placeholder="Od">
+          <input type="number" placeholder="Do">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Pogodnosti</label>
+        <div class="chip-group">
+          <span class="chip on">Namešten</span>
+          <span class="chip">Klima</span>
+          <span class="chip on">Internet</span>
+          <span class="chip">Parking</span>
+          <span class="chip">Terasa</span>
+          <span class="chip">Lift</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Dostupnost</label>
+        <select>
+          <option>Odmah dostupno</option>
+          <option>Do 30 dana</option>
+          <option>Bilo kada</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="filter-foot">
+      <button class="btn btn-primary" style="width:100%;justify-content:center">Primeni filtere</button>
+    </div>
+  </div>
+
+  <!-- LISTA -->
+  <div class="results-panel">
+    <div class="results-head">
+      <div class="r-count"><strong>24 oglasa</strong> pronađeno</div>
+      <select class="sort-sel">
+        <option>Cena ↑</option>
+        <option>Cena ↓</option>
+        <option>Najnovije</option>
+      </select>
+    </div>
+    <div class="results-list">
+
+      <a href="detalji_oglasa.html" class="listing-card sel">
+        <div class="listing-img" style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);position:relative">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#cdd9d3,#7a9a8d)"></div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-top">
+            <div class="listing-title">Svetao dvosoban, Voždovac</div>
+            <div class="listing-price">450€ <small>/mes</small></div>
+          </div>
+          <div class="listing-meta">Vojvode Stepe 12 · 55 m² · Sprat 3/5</div>
+          <div class="listing-bottom">
+            <span class="listing-tag">Dvosoban</span>
+            <span class="listing-tag">Namešten</span>
+            <span class="listing-tag">Terasa</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="detalji_oglasa.html" class="listing-card">
+        <div class="listing-img" style="background:linear-gradient(135deg,#d0dde8,#7a9ab8)"></div>
+        <div class="listing-body">
+          <div class="listing-top">
+            <div class="listing-title">Jednosoban, Zvezdara</div>
+            <div class="listing-price">380€ <small>/mes</small></div>
+          </div>
+          <div class="listing-meta">Bul. kralja Aleksandra · 38 m² · Sprat 1</div>
+          <div class="listing-bottom">
+            <span class="listing-tag">Jednosoban</span>
+            <span class="listing-tag">Internet</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="detalji_oglasa.html" class="listing-card">
+        <div class="listing-img" style="background:linear-gradient(135deg,#e2d5cc,#b89d93)"></div>
+        <div class="listing-body">
+          <div class="listing-top">
+            <div class="listing-title">Renoviran dvosoban, Vračar</div>
+            <div class="listing-price">500€ <small>/mes</small></div>
+          </div>
+          <div class="listing-meta">Beogradska 19 · 60 m² · Sprat 4/5</div>
+          <div class="listing-bottom">
+            <span class="listing-tag">Dvosoban</span>
+            <span class="listing-tag">Klima</span>
+            <span class="listing-tag">Parking</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="detalji_oglasa.html" class="listing-card">
+        <div class="listing-img" style="background:linear-gradient(135deg,#d5e0cc,#8aad82)"></div>
+        <div class="listing-body">
+          <div class="listing-top">
+            <div class="listing-title">Garsonjera, Dorćol</div>
+            <div class="listing-price">320€ <small>/mes</small></div>
+          </div>
+          <div class="listing-meta">Cetinjska 12 · 28 m² · Sprat 2/6</div>
+          <div class="listing-bottom">
+            <span class="listing-tag">Garsonjera</span>
+            <span class="listing-tag">Namešten</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="detalji_oglasa.html" class="listing-card">
+        <div class="listing-img" style="background:linear-gradient(135deg,#e8e0d0,#c5aa88)"></div>
+        <div class="listing-body">
+          <div class="listing-top">
+            <div class="listing-title">Trosoban, Novi Beograd</div>
+            <div class="listing-price">620€ <small>/mes</small></div>
+          </div>
+          <div class="listing-meta">Jurija Gagarina 14 · 74 m² · Sprat 6</div>
+          <div class="listing-bottom">
+            <span class="listing-tag">Trosoban</span>
+            <span class="listing-tag">Lift</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- MAPA -->
+  <div class="map-area">
+    <div class="map-bg"></div>
+    <div class="map-label">[ Interaktivna mapa Beograda ]</div>
+
+    <div class="map-marker sel" style="top:34%;left:48%">450€</div>
+    <div class="map-marker" style="top:52%;left:63%">380€</div>
+    <div class="map-marker" style="top:42%;left:57%">500€</div>
+    <div class="map-marker" style="top:27%;left:37%">320€</div>
+    <div class="map-marker" style="top:61%;left:44%">420€</div>
+
+    <div class="map-popup">
+      <div class="popup-price">450€ / mes</div>
+      <div class="popup-title">Svetao dvosoban, Voždovac</div>
+      <div class="popup-meta">55 m² · Sprat 3/5 · Namešten</div>
+      <a href="detalji_oglasa.html" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;margin-top:10px">Pogledaj oglas →</a>
+    </div>
+
+    <div class="map-controls">
+      <div class="map-btn">＋</div>
+      <div class="map-btn">－</div>
+      <div class="map-btn" style="margin-top:4px">⊕</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

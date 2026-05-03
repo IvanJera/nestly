@@ -1,0 +1,96 @@
+<!-- Autor: Aleksandra Stojanović 2023/0234 -->
+<!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly &mdash; Tačke od interesa</title>
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="index.html">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="s1_lista.html" class="active">Tačke od interesa <span class="pill">3</span></a>
+    <a href="s2_konfiguracija.html">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="s3_pretraga.html">Nekretine</a>
+    <a href="s4_lista.html">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="s5_pregled.html">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="index.html">← Prototip -</a> Korak 1/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Moje tačke od interesa</h1>
+        <p>Lokacije koje sistem koristi pri proračunu Nestly Score-a i filtriranju po vremenu putovanja.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="s1_dodaj.html">+ Nova tačka</a>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><div class="num">3</div><div class="lbl">Definisanih tačaka</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Kategorije u upotrebi</div></div>
+      <div class="stat"><div class="num">87%</div><div class="lbl">Najviši Nestly Score</div></div>
+    </div>
+
+    <div class="card tight">
+      <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+        <input type="text" placeholder="Pretraga po nazivu ili adresi&hellip;" style="flex:1;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+          <option>Sve kategorije</option><option>Fakultet</option><option>Posao</option><option>Sport</option><option>Slobodno vreme</option><option>Prodavnica</option>
+        </select>
+      </div>
+
+      <table class="data">
+        <thead><tr><th>Naziv</th><th>Adresa</th><th>Kategorija</th><th>Dodato</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>ETF Beograd</strong></td>
+            <td>Bulevar kralja Aleksandra 73</td>
+            <td><span class="badge badge-info">Fakultet</span></td>
+            <td>pre 2 nedelje</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="s1_izmeni.html">Izmeni</a>
+                <a class="btn btn-ghost btn-sm" href="s1_brisanje.html" style="color:var(--danger)">Obriši</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>SC &bdquo;11. April&ldquo;</strong></td>
+            <td>Bulevar Arsenija Čarnojevića 58</td>
+            <td><span class="badge badge-info">Sport</span></td>
+            <td>pre 9 dana</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="s1_izmeni.html">Izmeni</a>
+                <a class="btn btn-ghost btn-sm" href="s1_brisanje.html" style="color:var(--danger)">Obriši</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Maxi - Vračar</strong></td>
+            <td>Južni bulevar 18</td>
+            <td><span class="badge badge-info">Prodavnica</span></td>
+            <td>juče</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="s1_izmeni.html">Izmeni</a>
+                <a class="btn btn-ghost btn-sm" href="s1_brisanje.html" style="color:var(--danger)">Obriši</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body></html>

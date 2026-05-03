@@ -1,0 +1,120 @@
+<!-- Desanka Stanojevic-->
+ <!DOCTYPE html>
+<html lang="sr"><head><meta charset="UTF-8">
+<title>Nestly - Poruke</title>
+<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="stanodavac_index.html">Moji oglasi</a><a href="s4_poruke.html" class="active">Poruke</a></nav>
+  <div class="user-chip"><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="stanodavac_index.html">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="s2_moji_oglasi.html">Moji oglasi <span class="pill">4</span></a>
+    <a href="s1_kreiranje.html">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="s4_poruke.html" class="active">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="s3_analitika.html">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="page-head">
+      <div>
+        <h1>Poruke</h1>
+        <p>Upiti studenata i konverzacije o vašim oglasima.</p>
+      </div>
+      <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        <option>Sve poruke</option>
+        <option>Novi upiti</option>
+        <option>Odgovoreno</option>
+        <option>Rešeno</option>
+      </select>
+    </div>
+
+    <div style="display:grid;grid-template-columns:380px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)">
+      <div style="border-right:1px solid var(--line);background:#faf7f0">
+        <div style="padding:14px;border-bottom:1px solid var(--line)">
+          <input type="text" placeholder="Pretraži poruke..." style="width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        </div>
+
+        <div style="overflow-y:auto;max-height:600px">
+          <a href="s4_konverzacija.html" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;background:#fff">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">SĐ</div>
+                <div>
+                  <strong>Stefan Đorđević</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cara Lazara 14 · #2780</div>
+                </div>
+              </div>
+              <span class="badge badge-pending" style="font-size:11px">Novo</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Da li je stan još uvek dostupan? Interesuje me...</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Pre 12 min</div>
+          </a>
+
+          <a href="#" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">MJ</div>
+                <div>
+                  <strong>Marija Jovanović</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Bulevar 88a · #2654</div>
+                </div>
+              </div>
+              <span class="badge badge-info" style="font-size:11px">Odgovoreno</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Hvala na odgovoru! Da li bi bilo moguće...</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Pre 2h</div>
+          </a>
+
+          <a href="#" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">NP</div>
+                <div>
+                  <strong>Nikola Petrović</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cetinjska 22 · #2511</div>
+                </div>
+              </div>
+              <span class="badge badge-pending" style="font-size:11px">Novo</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Interesuje me dali je parking obezbeđen...</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Pre 4h</div>
+          </a>
+
+          <a href="#" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;opacity:.6">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">AK</div>
+                <div>
+                  <strong>Ana Kostić</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cara Lazara 14 · #2780</div>
+                </div>
+              </div>
+              <span class="badge badge-mute" style="font-size:11px">Rešeno</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Hvala na informacijama!</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Juče</div>
+          </a>
+        </div>
+      </div>
+
+      <div style="padding:22px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft)">
+        <div style="text-align:center">
+          <div style="font-size:48px;margin-bottom:12px">💬</div>
+          <div style="font-size:15px">Izaberite konverzaciju da biste videli poruke</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body></html>
