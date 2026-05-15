@@ -1,0 +1,269 @@
+<!-- Ivan Jerinic 78/23 -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Nestly Admin — Tačke od interesa</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.screen { display: none; }
+.screen:target { display: block; }
+body:not(:has(.screen:target)) #a3_baza { display: block; }
+</style>
+</head>
+<body>
+
+<section class="screen" id="a3_baza" data-title="Nestly Admin — Tačke od interesa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="administrator.html#index">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="administrator_oglasi.html#a1_lista">Oglasi <span class="pill">14</span></a>
+    <a href="#a3_baza" class="active">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="administrator_korisnici.html#a2_korisnici">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="administrator_logovi.html#a4_logovi">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="administrator.html#index">← Prototip -</a> Korak 1/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Tačke od interesa</h1>
+        <p>Infrastrukturna baza koja se koristi za izračunavanje Nestly Score-a (fakulteti, autobuske linije, parkovi, teretane…).</p>
+      </div>
+      <a class="btn btn-primary" href="#a3_dodaj">+ Dodaj tačku</a>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(5,1fr)">
+      <div class="stat"><div class="num">412</div><div class="lbl">Fakulteti</div></div>
+      <div class="stat"><div class="num">1 284</div><div class="lbl">Stanice prevoza</div></div>
+      <div class="stat"><div class="num">96</div><div class="lbl">Parkovi</div></div>
+      <div class="stat"><div class="num">218</div><div class="lbl">Sportski objekti</div></div>
+      <div class="stat"><div class="num">47</div><div class="lbl">Bolnice</div></div>
+    </div>
+
+    <div class="card tight">
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <input type="text" placeholder="Pretraga po imenu ili adresi…" style="flex:1;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+          <option>Sve kategorije</option><option>Fakultet</option><option>Prevoz</option><option>Park</option><option>Sport</option>
+        </select>
+      </div>
+
+      <table class="data">
+        <thead><tr><th>Naziv</th><th>Kategorija</th><th>Adresa</th><th>Koordinate</th><th>Ažurirano</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Elektrotehnički fakultet</strong></td>
+            <td><span class="badge badge-info">Fakultet</span></td>
+            <td>Bulevar kralja Aleksandra 73</td>
+            <td>44.8050, 20.4870</td>
+            <td>jan 2026</td>
+            <td><a href="#a3_dodaj" class="btn btn-ghost btn-sm">Izmeni</a></td>
+          </tr>
+          <tr>
+            <td><strong>Linija 65 — stanica Slavija</strong></td>
+            <td><span class="badge badge-info">Prevoz</span></td>
+            <td>Trg Slavija</td>
+            <td>44.8030, 20.4670</td>
+            <td>upravo dodato</td>
+            <td><a href="#a3_dodaj" class="btn btn-ghost btn-sm">Izmeni</a></td>
+          </tr>
+          <tr>
+            <td><strong>Tašmajdanski park</strong></td>
+            <td><span class="badge badge-info">Park</span></td>
+            <td>Beogradska bb</td>
+            <td>44.8095, 20.4720</td>
+            <td>dec 2025</td>
+            <td><a href="#a3_dodaj" class="btn btn-ghost btn-sm">Izmeni</a></td>
+          </tr>
+          <tr>
+            <td><strong>FitPass Vračar</strong></td>
+            <td><span class="badge badge-info">Sport</span></td>
+            <td>Maksima Gorkog 12</td>
+            <td>44.8011, 20.4775</td>
+            <td>nov 2025</td>
+            <td><a href="#a3_dodaj" class="btn btn-ghost btn-sm">Izmeni</a></td>
+          </tr>
+          <tr>
+            <td><strong>KBC Zvezdara</strong></td>
+            <td><span class="badge badge-info">Bolnica</span></td>
+            <td>Dimitrija Tucovića 161</td>
+            <td>44.7895, 20.5025</td>
+            <td>okt 2025</td>
+            <td><a href="#a3_dodaj" class="btn btn-ghost btn-sm">Izmeni</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="a3_dodaj" data-title="Nestly Admin — Nova tačka od interesa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="administrator.html#index">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="administrator_oglasi.html#a1_lista">Oglasi <span class="pill">14</span></a>
+    <a href="#a3_baza" class="active">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="administrator_korisnici.html#a2_korisnici">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="administrator_logovi.html#a4_logovi">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#a3_baza">← Tačke od interesa -</a> Korak 2/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Nova tačka od interesa</h1>
+        <p>Dodavanje nove infrastrukturne tačke u bazu. Nakon dodavanja, koristi se odmah u Nestly Score izračunavanjima.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:18px">
+      <div class="card">
+        <h2>Podaci o tački</h2>
+        <form>
+          <div class="row-2">
+            <div class="field">
+              <label>Naziv *</label>
+              <input type="text" value="Linija 26 — Konjarnik">
+            </div>
+            <div class="field">
+              <label>Kategorija *</label>
+              <select>
+                <option>Fakultet</option>
+                <option selected>Prevoz (autobus/tramvaj)</option>
+                <option>Park</option>
+                <option>Sport</option>
+                <option>Bolnica</option>
+                <option>Trgovinski centar</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Adresa *</label>
+            <input type="text" value="Ustanička bb, Konjarnik, Beograd">
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label>Latituda *</label>
+              <input type="text" value="44.7912">
+            </div>
+            <div class="field">
+              <label>Longituda *</label>
+              <input type="text" value="20.5108">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Dodatne informacije</label>
+            <textarea placeholder="Opciono: radno vreme, frekvencija polazaka, beleške...">Polasci na svakih 8–12 minuta u špicu, na 20 minuta vikendom.</textarea>
+          </div>
+
+          <div class="modal-note">
+            <strong>Validacija koordinata:</strong> Sistem će proveriti da li koordinate odgovaraju unetoj adresi pre snimanja.
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#a3_potvrda">+ Dodaj u bazu</a>
+            <a class="btn btn-ghost" href="#a3_baza">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Pregled na mapi</h3>
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:280px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;position:relative">
+          🗺
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);color:var(--danger);font-size:32px">📍</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-soft);margin-top:10px">
+          <strong>44.7912° N, 20.5108° E</strong><br>
+          Konjarnik, Beograd
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="a3_potvrda" data-title="Nestly Admin — Tačka dodata">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--ink);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">ADMIN</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Ivan J.</span><div class="avatar" style="background:#1a1a1a">IJ</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4><a href="administrator.html#index">Komandna tabla</a>
+    <h4>Sadržaj</h4>
+    <a href="administrator_oglasi.html#a1_lista">Oglasi <span class="pill">14</span></a>
+    <a href="#a3_baza" class="active">Tačke od interesa</a>
+    <h4>Korisnici</h4>
+    <a href="administrator_korisnici.html#a2_korisnici">Korisnici <span class="pill">2</span></a>
+    <h4>Sistem</h4>
+    <a href="administrator_logovi.html#a4_logovi">Sistemski logovi</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="administrator.html#index">← Prototip -</a> Korak 3/3</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#e7f3ea;color:var(--ok);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">✓</div>
+      <h1 style="font-size:26px;margin:0">Tačka dodata u bazu</h1>
+      <p style="color:var(--ink-soft);max-width:420px;margin:8px auto 22px">
+        Nova tačka <strong>Linija 26 - Konjarnik</strong> uspešno je dodata u bazu i odmah je raspoloživa za izračunavanje Nestly Score-a.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Naziv</dt><dd>Linija 26 - Konjarnik</dd>
+          <dt>Kategorija</dt><dd><span class="badge badge-info">Prevoz</span></dd>
+          <dt>Adresa</dt><dd>Ustanička bb, Konjarnik, Beograd</dd>
+          <dt>Koordinate</dt><dd>44.7912° N, 20.5108° E</dd>
+          <dt>Validacija</dt><dd style="color:var(--ok)">✓ Koordinate odgovaraju adresi</dd>
+        </dl>
+      </div>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:14px;text-align:left;margin-bottom:24px;font-size:13px">
+        <strong>Akcija zabeležena u log:</strong><br>
+        <span style="font-family:'JetBrains Mono',Menlo,monospace;color:var(--ink-soft)">[15.04.2026 15:08:33] admin.poi_added by=ivan.j category=transit name="Linija 26"</span>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#a3_dodaj">+ Dodaj još jednu</a>
+        <a class="btn btn-ghost" href="#a3_baza">← Pregled baze</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<script>
+(function () {
+  var DEFAULT = "a3_baza";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!-- Aleksandra Stojanovic 234/23 -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Nestly &amp;mdash; Recenzije kvarta Vračar</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.screen { display: none; }
+.screen:target { display: block; }
+body:not(:has(.screen:target)) #s5_pregled { display: block; }
+</style>
+</head>
+<body>
+
+<section class="screen" id="s5_pregled" data-title="Nestly &amp;mdash; Recenzije kvarta Vračar">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="#s5_pregled" class="active">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 1/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Recenzije kvarta: Vračar</h1>
+        <p>Iskustva studenata koji su živeli ili žive u ovom kvartu. Recenzije prolaze moderaciju pre objavljivanja.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost" href="#s5_postoji">Moja recenzija</a>
+        <a class="btn btn-primary" href="#s5_kvart">+ Oceni kvart</a>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:18px">
+      <div class="card">
+        <h3 style="margin-top:0">Ukupna ocena</h3>
+        <div style="text-align:center;padding:14px 0">
+          <div style="font-family:'Fraunces',serif;font-size:52px;font-weight:600;color:var(--ink);line-height:1">4.2</div>
+          <div class="stars" style="font-size:22px;margin-top:6px">★★★★<span style="color:#e6e1d8">★</span></div>
+          <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:4px">7 recenzija</div>
+        </div>
+
+        <div style="border-top:1px solid var(--line);padding-top:14px">
+          <h3 style="margin:0 0 10px;font-size:15px">Ocene po kategorijama</h3>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+            <div style="display:grid;grid-template-columns:110px 1fr 30px;gap:8px;align-items:center">
+              <span>Tišina</span>
+              <div style="height:8px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:80%;height:100%;background:var(--accent)"></div></div>
+              <span style="text-align:right;font-weight:600">4.0</span>
+            </div>
+            <div style="display:grid;grid-template-columns:110px 1fr 30px;gap:8px;align-items:center">
+              <span>Bezbednost</span>
+              <div style="height:8px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:90%;height:100%;background:var(--accent)"></div></div>
+              <span style="text-align:right;font-weight:600">4.5</span>
+            </div>
+            <div style="display:grid;grid-template-columns:110px 1fr 30px;gap:8px;align-items:center">
+              <span>Čistoća</span>
+              <div style="height:8px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:70%;height:100%;background:var(--accent)"></div></div>
+              <span style="text-align:right;font-weight:600">3.5</span>
+            </div>
+            <div style="display:grid;grid-template-columns:110px 1fr 30px;gap:8px;align-items:center">
+              <span>Infrastruktura</span>
+              <div style="height:8px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:90%;height:100%;background:var(--accent)"></div></div>
+              <span style="text-align:right;font-weight:600">4.5</span>
+            </div>
+            <div style="display:grid;grid-template-columns:110px 1fr 30px;gap:8px;align-items:center">
+              <span>Komšije</span>
+              <div style="height:8px;background:var(--line);border-radius:4px;overflow:hidden"><div style="width:86%;height:100%;background:var(--accent)"></div></div>
+              <span style="text-align:right;font-weight:600">4.3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Recenzije</h3>
+
+        <div style="border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px">
+            <div>
+              <strong>Odličan kvart za studente</strong>
+              <div class="stars" style="font-size:14px;margin-top:2px">★★★★★</div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-soft);text-align:right">Ivana I.<br>10.4.2026.</div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin:6px 0 0">Živela sam na Vračaru dve godine. Odlična povezanost javnim prevozom, mnogo prodavnica u blizini, mirne ulice. Preporučujem svima koji studiraju na ETF-u.</p>
+        </div>
+
+        <div style="border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:10px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px">
+            <div>
+              <strong>Dobro, ali bučno vikendom</strong>
+              <div class="stars" style="font-size:14px;margin-top:2px">★★★★<span style="color:#e6e1d8">★</span></div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-soft);text-align:right">Stefan S.<br>5.4.2026.</div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin:6px 0 0">Generalno dobar kvart. Jedini minus su vikend noći kada kafići na Južnom bulevaru znaju da budu glasni. Radnim danima je sasvim mirno.</p>
+        </div>
+
+        <div style="border:1px solid var(--line);border-radius:8px;padding:14px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px">
+            <div>
+              <strong>Skupo ali vredi</strong>
+              <div class="stars" style="font-size:14px;margin-top:2px">★★★<span style="color:#e6e1d8">★★</span></div>
+            </div>
+            <div style="font-size:12px;color:var(--ink-soft);text-align:right">Maja M.<br>1.4.2026.</div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);margin:6px 0 0">Cene stanova su iznad proseka, ali kvalitet života to nadoknađuje. Zelene ulice, dobre pekare, blizina centra.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tight" style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <h3 style="margin:0">Stanodavci u kvartu</h3>
+        <span style="font-size:13px;color:var(--ink-soft)">Ocenite stanodavca sa kojim ste imali iskustvo</span>
+      </div>
+      <table class="data">
+        <thead><tr><th>Stanodavac</th><th>Prosečna ocena</th><th>Broj recenzija</th><th>Poslednja recenzija</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Jovan J.</strong></td>
+            <td><div class="stars" style="font-size:15px">★★★★<span style="color:#e6e1d8">★</span></div> <span style="color:var(--ink-soft);font-size:12px">4.0</span></td>
+            <td>3</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 2 nedelje</td>
+            <td><a class="btn btn-ghost btn-sm" href="#s5_stanodavac">Oceni →</a></td>
+          </tr>
+          <tr>
+            <td><strong>Marija M.</strong></td>
+            <td><div class="stars" style="font-size:15px">★★★★★</div> <span style="color:var(--ink-soft);font-size:12px">4.8</span></td>
+            <td>5</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre mesec dana</td>
+            <td><a class="btn btn-ghost btn-sm" href="#s5_stanodavac">Oceni →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s5_kvart" data-title="Nestly &amp;mdash; Oceni kvart">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="#s5_pregled" class="active">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s5_pregled">← Recenzije -</a> Korak 2/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Oceni kvart: Vračar</h1>
+        <p>Podelite iskustvo života u ovom kvartu. Recenzija prolazi moderaciju pre objavljivanja.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:18px">
+      <div class="card">
+        <form>
+          <div class="field">
+            <label>Ukupna ocena *</label>
+            <select>
+              <option value="">-- Izaberite ocenu --</option>
+              <option>★★★★★ (5) — Odlično</option>
+              <option selected>★★★★ (4) — Vrlo dobro</option>
+              <option>★★★ (3) — Dobro</option>
+              <option>★★ (2) — Loše</option>
+              <option>★ (1) — Veoma loše</option>
+            </select>
+          </div>
+
+          <h3 style="margin-top:20px;margin-bottom:10px">Ocene po kategorijama *</h3>
+          <div class="row-2">
+            <div class="field">
+              <label>Tišina</label>
+              <select>
+                <option>★★★★★ (5)</option>
+                <option selected>★★★★ (4)</option>
+                <option>★★★ (3)</option>
+                <option>★★ (2)</option>
+                <option>★ (1)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Bezbednost</label>
+              <select>
+                <option selected>★★★★★ (5)</option>
+                <option>★★★★ (4)</option>
+                <option>★★★ (3)</option>
+                <option>★★ (2)</option>
+                <option>★ (1)</option>
+              </select>
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Čistoća</label>
+              <select>
+                <option>★★★★★ (5)</option>
+                <option>★★★★ (4)</option>
+                <option selected>★★★ (3)</option>
+                <option>★★ (2)</option>
+                <option>★ (1)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Infrastruktura</label>
+              <select>
+                <option selected>★★★★★ (5)</option>
+                <option>★★★★ (4)</option>
+                <option>★★★ (3)</option>
+                <option>★★ (2)</option>
+                <option>★ (1)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Komšije</label>
+            <select>
+              <option>★★★★★ (5)</option>
+              <option selected>★★★★ (4)</option>
+              <option>★★★ (3)</option>
+              <option>★★ (2)</option>
+              <option>★ (1)</option>
+            </select>
+          </div>
+
+          <div class="field" style="margin-top:12px">
+            <label>Komentar *</label>
+            <textarea placeholder="Opišite iskustvo života u kvartu &mdash; prednosti, nedostatke, saobraćaj, sadržaje&hellip;"></textarea>
+            <div class="help">Minimum 30 karaktera. Uvredljiv sadržaj se ne objavljuje.</div>
+          </div>
+
+          <div class="modal-note">
+            <strong>Moderacija:</strong> Recenzija će biti objavljena nakon provere administratora. Vaše ime će biti vidljivo ostalim korisnicima.
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#s5_potvrda">Objavi recenziju</a>
+            <a class="btn btn-ghost" href="#s5_pregled">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">O kvartu Vračar</h3>
+        <dl class="kv" style="font-size:13px">
+          <dt>Trenutna prosečna ocena</dt><dd><strong>4.2</strong> (7 recenzija)</dd>
+          <dt>Broj stanodavaca</dt><dd>12 aktivnih</dd>
+          <dt>Broj oglasa</dt><dd>38</dd>
+          <dt>Prosečna cena najma</dt><dd>385 €/mesec</dd>
+        </dl>
+
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:180px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;margin-top:14px">
+          🗺
+        </div>
+        <div style="font-size:13px;color:var(--ink-soft);margin-top:8px;text-align:center">
+          Vračar, Beograd
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s5_postoji" data-title="Nestly &amp;mdash; Postojeća recenzija">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="#s5_pregled" class="active">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s5_pregled">← Recenzije -</a> Postojeća recenzija</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff5ec;color:var(--warn);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">!</div>
+      <h1 style="font-size:24px;margin:0">Već ste ocenili ovaj kvart</h1>
+      <p style="color:var(--ink-soft);max-width:440px;margin:8px auto 22px">
+        Vaša postojeća recenzija za kvart <strong>Vračar</strong> je objavljena pre 3 nedelje. Možete je izmeniti umesto da ostavljate novu.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Vaša ocena</dt><dd><div class="stars" style="font-size:15px">★★★★<span style="color:#e6e1d8">★</span></div> <strong>4.0</strong></dd>
+          <dt>Objavljeno</dt><dd>25.03.2026.</dd>
+          <dt>Status</dt><dd><span class="badge badge-ok">Objavljena</span></dd>
+        </dl>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s5_kvart">Izmeni moju recenziju</a>
+        <a class="btn btn-ghost" href="#s5_pregled">← Nazad na recenzije</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s5_potvrda" data-title="Nestly &amp;mdash; Recenzija poslata">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="#s5_pregled" class="active">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 3/3</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#e7f3ea;color:var(--ok);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">✓</div>
+      <h1 style="font-size:26px;margin:0">Recenzija poslata na moderaciju</h1>
+      <p style="color:var(--ink-soft);max-width:440px;margin:8px auto 22px">
+        Hvala što ste podelili iskustvo. Vaša recenzija će biti vidljiva ostalim korisnicima nakon što je administrator odobri &mdash; obično u roku od 24 sata.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Predmet recenzije</dt><dd>Kvart Vračar</dd>
+          <dt>Vaša ocena</dt><dd><div class="stars" style="font-size:16px">★★★★<span style="color:#e6e1d8">★</span></div> <strong>4.0</strong></dd>
+          <dt>Status</dt><dd><span class="badge badge-pending">Čeka moderaciju</span></dd>
+          <dt>Poslato</dt><dd>15.04.2026 15:58</dd>
+        </dl>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s5_pregled">← Nazad na recenzije</a>
+        <a class="btn btn-ghost" href="student_pretraga.html#s3_pretraga">Nastavi pretragu nekretina</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s5_stanodavac" data-title="Nestly &amp;mdash; Oceni stanodavca">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="#s5_pregled" class="active">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s5_pregled">← Recenzije -</a> Oceni stanodavca</div>
+    <div class="page-head">
+      <div>
+        <h1>Oceni stanodavca: Jovan J.</h1>
+        <p>Opišite iskustvo saradnje &mdash; komunikaciju, korektnost, održavanje stana. Recenzija prolazi moderaciju.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:18px">
+      <div class="card">
+        <form>
+          <div class="field">
+            <label>Ocena *</label>
+            <select>
+              <option value="">-- Izaberite ocenu --</option>
+              <option>★★★★★ (5) — Odlično</option>
+              <option>★★★★ (4) — Vrlo dobro</option>
+              <option selected>★★★ (3) — Dobro</option>
+              <option>★★ (2) — Loše</option>
+              <option>★ (1) — Veoma loše</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Komentar o iskustvu *</label>
+            <textarea placeholder="Kako je tekla komunikacija? Da li je stanodavac reagovao na probleme? Da li su uslovi ugovora poštovani?"></textarea>
+            <div class="help">Minimum 30 karaktera. Pridržavajte se činjenica i izbegavajte lične napade.</div>
+          </div>
+
+          <div class="modal-note">
+            <strong>Moderacija:</strong> Recenzija prolazi proveru administratora pre objavljivanja. Stanodavac može odgovoriti na vaš komentar.
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#s5_potvrda">Objavi recenziju</a>
+            <a class="btn btn-ghost" href="#s5_pregled">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">O stanodavcu</h3>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <div class="avatar" style="background:#2f5d4f;width:48px;height:48px;font-size:16px">JJ</div>
+          <div>
+            <div style="font-weight:600">Jovan J.</div>
+            <div style="font-size:12px;color:var(--ink-soft)">Stanodavac &bull; 4 aktivna oglasa</div>
+          </div>
+        </div>
+
+        <dl class="kv" style="font-size:13px">
+          <dt>Trenutna ocena</dt><dd><strong>4.0</strong> (3 recenzije)</dd>
+          <dt>Broj iznajmljivanja</dt><dd>12 u poslednjih 2 godine</dd>
+          <dt>Prosečno vreme odgovora</dt><dd>~4 sata</dd>
+          <dt>Lokacije oglasa</dt><dd>Vračar, Zvezdara</dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+
+<script>
+(function () {
+  var DEFAULT = "s5_pregled";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

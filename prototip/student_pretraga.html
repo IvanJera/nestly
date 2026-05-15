@@ -1,0 +1,336 @@
+<!-- Desanka Stanojevic 232/23 -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Nestly &amp;mdash; Pretraga nekretina</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.screen { display: none; }
+.screen:target { display: block; }
+body:not(:has(.screen:target)) #s3_pretraga { display: block; }
+</style>
+</head>
+<body>
+
+<section class="screen" id="s3_pretraga" data-title="Nestly &amp;mdash; Pretraga nekretina">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="#s3_pretraga" class="active">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 1/2</div>
+    <div class="page-head">
+      <div>
+        <h1>Pretraga nekretina</h1>
+        <p>Filtrirajte oglase prema realnom vremenu putovanja do vaših tačaka od interesa.</p>
+      </div>
+      <div class="btn-row">
+        <span class="badge badge-info">128 oglasa ukupno</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:320px 1fr;gap:18px">
+      <aside class="card">
+        <h3 style="margin-top:0">Napredni filter</h3>
+        <form>
+          <div class="field">
+            <label>Ciljna tačka od interesa</label>
+            <select>
+              <option selected>ETF Beograd</option>
+              <option>SC "11. April"</option>
+              <option>Maxi - Vračar</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Maksimalno vreme putovanja</label>
+            <div style="display:flex;align-items:center;gap:10px">
+              <input type="range" min="5" max="90" value="30" style="flex:1;accent-color:var(--accent)">
+              <span style="font-family:'Fraunces',serif;font-size:20px;font-weight:600;color:var(--accent);min-width:60px;text-align:right">30 min</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Tip prevoza</label>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <label style="flex:1;min-width:90px;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:13px">
+                <input type="radio" name="tp" style="margin-right:4px"> Pešice
+              </label>
+              <label style="flex:1;min-width:90px;border:1px solid var(--accent);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:13px;background:var(--accent-soft);color:var(--accent);font-weight:600">
+                <input type="radio" name="tp" checked style="margin-right:4px"> Javni
+              </label>
+              <label style="flex:1;min-width:90px;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;cursor:pointer;font-size:13px">
+                <input type="radio" name="tp" style="margin-right:4px"> Automobil
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Opseg cene (€/mesec)</label>
+            <div class="row-2">
+              <input type="text" placeholder="Od" value="200">
+              <input type="text" placeholder="Do" value="400">
+            </div>
+          </div>
+
+          <div class="modal-note" style="font-size:12.5px">
+            Sistem koristi Google Maps API za proračun realnog vremena putovanja u zavisnosti od doba dana.
+          </div>
+
+          <div class="btn-row" style="margin-top:14px">
+            <a class="btn btn-primary" href="#s3_filter" style="flex:1;justify-content:center">Primeni filter</a>
+          </div>
+          <div class="btn-row" style="margin-top:8px">
+            <a class="btn btn-ghost btn-sm" href="#s3_pretraga" style="flex:1;justify-content:center">Ukloni filter</a>
+          </div>
+        </form>
+      </aside>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:360px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:36px;position:relative">
+          🗺
+          <div style="position:absolute;top:25%;left:35%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:40%;left:55%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:55%;left:30%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:65%;left:70%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:50%;left:50%;color:var(--danger);font-size:32px;transform:translate(-50%,-50%);filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">⭐</div>
+        </div>
+        <div style="padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft)">
+          <span><span style="color:var(--danger)">⭐</span> Ciljna tačka &nbsp; <span style="color:var(--accent)">📍</span> Dostupne nekretine (128)</span>
+          <span><strong>Prikazane sve lokacije</strong> &mdash; primenite filter za preciznije rezultate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card tight" style="margin-top:18px">
+      <h3 style="margin-top:0;margin-bottom:12px">Svi oglasi</h3>
+      <table class="data">
+        <thead><tr><th>ID</th><th>Adresa</th><th>Površina</th><th>Cena</th><th>Nestly Score</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>#1421</td><td>Njegoševa 42, Vračar</td><td>45m²</td><td>350 €</td>
+            <td><span class="badge badge-ok">87%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr>
+            <td>#1420</td><td>Bul. kr. Aleksandra 78, Zvezdara</td><td>28m²</td><td>250 €</td>
+            <td><span class="badge badge-ok">82%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr>
+            <td>#1419</td><td>Takovska 22, Palilula</td><td>38m²</td><td>300 €</td>
+            <td><span class="badge badge-info">79%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr>
+            <td>#1418</td><td>Blok 45, Novi Beograd</td><td>65m²</td><td>400 €</td>
+            <td><span class="badge badge-info">71%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+          <tr style="opacity:.6">
+            <td>#1417</td><td>Vojislava Ilića 12, Konjarnik</td><td>32m²</td><td>220 €</td>
+            <td><span class="badge badge-mute">58%</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#">Pregledaj →</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:12px 4px 4px;font-size:13px;color:var(--ink-soft)">Prikazano 5 od 128 oglasa.</div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s3_filter" data-title="Nestly &amp;mdash; Rezultati filtriranja">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="#s3_pretraga" class="active">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s3_pretraga">← Pretraga nekretina -</a> Korak 2/2</div>
+    <div class="page-head">
+      <div>
+        <h1>Rezultati filtriranja</h1>
+        <p>Nekretine u okviru zadatog vremena putovanja javnim prevozom do ETF Beograd.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost btn-sm" href="#s3_pretraga">← Izmeni filter</a>
+        <a class="btn btn-ghost btn-sm" href="#s3_pretraga">Ukloni filter</a>
+      </div>
+    </div>
+
+    <div class="modal-note" style="margin-bottom:18px">
+      <strong>Primenjeni filter:</strong> do <strong>30 min</strong> javnim prevozom od <strong>ETF Beograd</strong>, cena <strong>200&ndash;400 €</strong>.
+      Pronađeno <strong>3 od 128</strong> oglasa.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:340px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:36px;position:relative">
+          <div style="position:absolute;inset:20% 15% 20% 15%;border:3px dashed rgba(47,93,79,.7);border-radius:50%;background:rgba(47,93,79,.12)"></div>
+          <div style="position:absolute;top:38%;left:38%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:52%;left:58%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:60%;left:40%;color:var(--accent);font-size:28px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+          <div style="position:absolute;top:50%;left:50%;color:var(--danger);font-size:32px;transform:translate(-50%,-50%);filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">⭐</div>
+        </div>
+        <div style="padding:14px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-soft)">
+          <span style="color:var(--danger)">⭐</span> ETF Beograd &nbsp;
+          <span style="color:var(--accent)">📍</span> 3 nekretine u okviru filtera &nbsp;
+          <span style="color:var(--accent);font-family:monospace">- - -</span> izohrona 30 min
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="margin:0 0 4px">Pronađene nekretine</h3>
+
+        <div style="border:1px solid var(--line);border-radius:8px;padding:14px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+            <div>
+              <div style="font-weight:600;margin-bottom:2px">Stan 2.0, 45m² &mdash; Njegoševa 42</div>
+              <div style="font-size:13px;color:var(--ink-soft)">Vračar &bull; 350 €/mesec</div>
+            </div>
+            <span class="badge badge-ok">87%</span>
+          </div>
+          <div style="display:flex;gap:16px;margin-top:10px;font-size:13px;color:var(--ink-soft)">
+            <span>🚌 <strong style="color:var(--ink)">12 min</strong> do ETF</span>
+            <span>🚶 22 min pešice</span>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--line);border-radius:8px;padding:14px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+            <div>
+              <div style="font-weight:600;margin-bottom:2px">Garsonjera, 28m² &mdash; Bul. kr. Aleksandra 78</div>
+              <div style="font-size:13px;color:var(--ink-soft)">Zvezdara &bull; 250 €/mesec</div>
+            </div>
+            <span class="badge badge-ok">82%</span>
+          </div>
+          <div style="display:flex;gap:16px;margin-top:10px;font-size:13px;color:var(--ink-soft)">
+            <span>🚌 <strong style="color:var(--ink)">18 min</strong> do ETF</span>
+            <span>🚶 35 min pešice</span>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--line);border-radius:8px;padding:14px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+            <div>
+              <div style="font-weight:600;margin-bottom:2px">Stan 1.5, 38m² &mdash; Takovska 22</div>
+              <div style="font-size:13px;color:var(--ink-soft)">Palilula &bull; 300 €/mesec</div>
+            </div>
+            <span class="badge badge-info">79%</span>
+          </div>
+          <div style="display:flex;gap:16px;margin-top:10px;font-size:13px;color:var(--ink-soft)">
+            <span>🚌 <strong style="color:var(--ink)">25 min</strong> do ETF</span>
+            <span>🚶 48 min pešice</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s3_prazni" data-title="Nestly &amp;mdash; Nema rezultata">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="#s3_pretraga" class="active">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s3_pretraga">← Pretraga nekretina -</a> Bez rezultata</div>
+    <div class="page-head">
+      <div>
+        <h1>Nema dostupnih nekretina</h1>
+        <p>Nijedna nekretina ne zadovoljava zadate kriterijume filtera.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost btn-sm" href="#s3_pretraga">← Izmeni filter</a>
+      </div>
+    </div>
+
+    <div class="modal-note" style="margin-bottom:18px">
+      <strong>Primenjeni filter:</strong> do <strong>10 min</strong> pešice od <strong>ETF Beograd</strong>, cena <strong>150&ndash;200 €</strong>.
+      Pronađeno <strong>0 od 128</strong> oglasa.
+    </div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:620px;margin:20px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#ece8e0;color:var(--ink-soft);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">∅</div>
+      <h2 style="margin:0">Nijedna nekretina ne zadovoljava kriterijume</h2>
+      <p style="color:var(--ink-soft);max-width:480px;margin:8px auto 22px">
+        Pokušajte da povećate maksimalno vreme putovanja, promenite tip prevoza ili proširite cenovni opseg.
+      </p>
+
+      <div style="text-align:left;max-width:440px;margin:0 auto 22px">
+        <h3 style="margin:0 0 10px;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)">Predlozi</h3>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.8;color:var(--ink-soft)">
+          <li>Povećajte maksimalno vreme putovanja sa 10 na 20 minuta</li>
+          <li>Promenite tip prevoza sa &bdquo;pešice&ldquo; na &bdquo;javni prevoz&ldquo;</li>
+          <li>Proširite cenovni opseg na 150&ndash;300 €</li>
+          <li>Pokušajte drugu tačku od interesa</li>
+        </ul>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s3_pretraga">Izmeni filter</a>
+        <a class="btn btn-ghost" href="#s3_pretraga">Prikaži sve oglase</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<script>
+(function () {
+  var DEFAULT = "s3_pretraga";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

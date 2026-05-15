@@ -1,0 +1,522 @@
+<!-- Aleksandra Stojanovic 234/23 -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Nestly &amp;mdash; Tačke od interesa</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.screen { display: none; }
+.screen:target { display: block; }
+body:not(:has(.screen:target)) #s1_lista { display: block; }
+</style>
+<style>
+/* per-screen styles, scoped */
+#s1_greska .field-error input, #s1_greska .field-error select {border-color:var(--danger) !important;background:#fdf5f5}#s1_greska .err-msg {color:var(--danger);font-size:12px;margin-top:4px;font-weight:500}
+</style>
+</head>
+<body>
+
+<section class="screen" id="s1_lista" data-title="Nestly &amp;mdash; Tačke od interesa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista" class="active">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 1/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Moje tačke od interesa</h1>
+        <p>Lokacije koje sistem koristi pri proračunu Nestly Score-a i filtriranju po vremenu putovanja.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#s1_dodaj">+ Nova tačka</a>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><div class="num">3</div><div class="lbl">Definisanih tačaka</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Kategorije u upotrebi</div></div>
+      <div class="stat"><div class="num">87%</div><div class="lbl">Najviši Nestly Score</div></div>
+    </div>
+
+    <div class="card tight">
+      <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+        <input type="text" placeholder="Pretraga po nazivu ili adresi&hellip;" style="flex:1;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+          <option>Sve kategorije</option><option>Fakultet</option><option>Posao</option><option>Sport</option><option>Slobodno vreme</option><option>Prodavnica</option>
+        </select>
+      </div>
+
+      <table class="data">
+        <thead><tr><th>Naziv</th><th>Adresa</th><th>Kategorija</th><th>Dodato</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>ETF Beograd</strong></td>
+            <td>Bulevar kralja Aleksandra 73</td>
+            <td><span class="badge badge-info">Fakultet</span></td>
+            <td>pre 2 nedelje</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s1_izmeni">Izmeni</a>
+                <a class="btn btn-ghost btn-sm" href="#s1_brisanje" style="color:var(--danger)">Obriši</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>SC &bdquo;11. April&ldquo;</strong></td>
+            <td>Bulevar Arsenija Čarnojevića 58</td>
+            <td><span class="badge badge-info">Sport</span></td>
+            <td>pre 9 dana</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s1_izmeni">Izmeni</a>
+                <a class="btn btn-ghost btn-sm" href="#s1_brisanje" style="color:var(--danger)">Obriši</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Maxi - Vračar</strong></td>
+            <td>Južni bulevar 18</td>
+            <td><span class="badge badge-info">Prodavnica</span></td>
+            <td>juče</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s1_izmeni">Izmeni</a>
+                <a class="btn btn-ghost btn-sm" href="#s1_brisanje" style="color:var(--danger)">Obriši</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s1_dodaj" data-title="Nestly &amp;mdash; Nova tačka od interesa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista" class="active">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s1_lista">← Tačke od interesa -</a> Korak 2/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Nova tačka od interesa</h1>
+        <p>Unesite lokaciju koja vam je važna u svakodnevnom životu. Koristiće se u proračunu Nestly Score-a.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:18px">
+      <div class="card">
+        <h2>Podaci o tački</h2>
+        <form>
+          <div class="row-2">
+            <div class="field">
+              <label>Naziv *</label>
+              <input type="text" placeholder="npr. ETF Beograd">
+            </div>
+            <div class="field">
+              <label>Kategorija *</label>
+              <select>
+                <option value="">-- Izaberite kategoriju --</option>
+                <option>Fakultet</option>
+                <option>Posao</option>
+                <option>Sport</option>
+                <option>Slobodno vreme</option>
+                <option>Prodavnica</option>
+                <option>Ostalo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Adresa *</label>
+            <input type="text" placeholder="npr. Bulevar kralja Aleksandra 73, Beograd">
+            <div class="help">Sistem će automatski geokodirati adresu i odrediti koordinate.</div>
+          </div>
+
+          <div class="field">
+            <label>Dodatne informacije</label>
+            <textarea placeholder="Opciono: radno vreme, napomene&hellip;"></textarea>
+          </div>
+
+          <div class="modal-note">
+            <strong>Napomena:</strong> Nakon čuvanja, Nestly Score se automatski preračunava za sve oglase.
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#s1_potvrda">+ Sačuvaj tačku</a>
+            <a class="btn btn-ghost" href="#s1_lista">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Pregled na mapi</h3>
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:280px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;position:relative">
+          🗺
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);color:var(--danger);font-size:32px">📍</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-soft);margin-top:10px">
+          Lokacija će biti određena nakon unosa adrese.
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s1_izmeni" data-title="Nestly &amp;mdash; Izmena tačke od interesa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista" class="active">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s1_lista">← Tačke od interesa -</a> Izmena</div>
+    <div class="page-head">
+      <div>
+        <h1>Izmena tačke od interesa</h1>
+        <p>Ažurirajte podatke o tački. Promene će se automatski odraziti u proračunu Nestly Score-a.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:18px">
+      <div class="card">
+        <h2>Podaci o tački</h2>
+        <form>
+          <div class="row-2">
+            <div class="field">
+              <label>Naziv *</label>
+              <input type="text" value="ETF Beograd">
+            </div>
+            <div class="field">
+              <label>Kategorija *</label>
+              <select>
+                <option selected>Fakultet</option>
+                <option>Posao</option>
+                <option>Sport</option>
+                <option>Slobodno vreme</option>
+                <option>Prodavnica</option>
+                <option>Ostalo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Adresa *</label>
+            <input type="text" value="Bulevar kralja Aleksandra 73, Beograd">
+          </div>
+
+          <div class="field">
+            <label>Dodatne informacije</label>
+            <textarea>Glavna zgrada, ulaz iz Bulevara kralja Aleksandra.</textarea>
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#s1_potvrda">Sačuvaj izmene</a>
+            <a class="btn btn-ghost" href="#s1_lista">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Trenutna lokacija</h3>
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:280px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;position:relative">
+          🗺
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);color:var(--danger);font-size:32px">📍</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-soft);margin-top:10px">
+          <strong>44.8047° N, 20.4787° E</strong><br>
+          Bulevar kralja Aleksandra 73, Beograd
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s1_brisanje" data-title="Nestly &amp;mdash; Brisanje tačke">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista" class="active">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s1_lista">← Tačke od interesa -</a> Brisanje</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fae9e9;color:var(--danger);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">⚠</div>
+      <h1 style="font-size:24px;margin:0">Potvrda brisanja</h1>
+      <p style="color:var(--ink-soft);max-width:420px;margin:8px auto 22px">
+        Da li ste sigurni da želite da obrišete tačku <strong>ETF Beograd</strong>?
+        Ova akcija ne može biti poništena, a Nestly Score će se automatski preračunati.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Naziv</dt><dd>ETF Beograd</dd>
+          <dt>Kategorija</dt><dd><span class="badge badge-info">Fakultet</span></dd>
+          <dt>Adresa</dt><dd>Bulevar kralja Aleksandra 73, Beograd</dd>
+        </dl>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-danger" href="#s1_lista">Obriši tačku</a>
+        <a class="btn btn-ghost" href="#s1_lista">Otkaži</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s1_potvrda" data-title="Nestly &amp;mdash; Tačka sačuvana">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista" class="active">Tačke od interesa <span class="pill">4</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 3/3</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#e7f3ea;color:var(--ok);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">✓</div>
+      <h1 style="font-size:26px;margin:0">Tačka uspešno sačuvana</h1>
+      <p style="color:var(--ink-soft);max-width:420px;margin:8px auto 22px">
+        Nova tačka <strong>ETF Beograd</strong> uspešno je dodata u vaš profil i odmah se koristi u proračunu Nestly Score-a.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Naziv</dt><dd>ETF Beograd</dd>
+          <dt>Kategorija</dt><dd><span class="badge badge-info">Fakultet</span></dd>
+          <dt>Adresa</dt><dd>Bulevar kralja Aleksandra 73, Beograd</dd>
+          <dt>Koordinate</dt><dd>44.8047° N, 20.4787° E</dd>
+          <dt>Status</dt><dd style="color:var(--ok)">✓ Koordinate odgovaraju adresi</dd>
+        </dl>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s1_dodaj">+ Dodaj još jednu</a>
+        <a class="btn btn-ghost" href="#s1_lista">← Nazad na listu</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s1_greska" data-title="Nestly &amp;mdash; Greška pri unosu">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista" class="active">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s1_lista">← Tačke od interesa -</a> Nova tačka</div>
+    <div class="page-head">
+      <div>
+        <h1>Nova tačka od interesa</h1>
+        <p>Unesite lokaciju koja vam je važna u svakodnevnom životu.</p>
+      </div>
+    </div>
+
+    <div style="background:#fae9e9;border:1px solid #e5c2c2;color:var(--danger);padding:12px 14px;border-radius:8px;margin-bottom:18px;font-size:13.5px">
+      <strong>Obavezna polja nisu popunjena.</strong> Ispravite označena polja i pokušajte ponovo.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:18px">
+      <div class="card">
+        <h2>Podaci o tački</h2>
+        <form>
+          <div class="row-2">
+            <div class="field field-error">
+              <label>Naziv *</label>
+              <input type="text" value="">
+              <div class="err-msg">Ovo polje je obavezno.</div>
+            </div>
+            <div class="field field-error">
+              <label>Kategorija *</label>
+              <select>
+                <option value="">-- Izaberite kategoriju --</option>
+                <option>Fakultet</option>
+                <option>Posao</option>
+                <option>Sport</option>
+                <option>Slobodno vreme</option>
+                <option>Prodavnica</option>
+                <option>Ostalo</option>
+              </select>
+              <div class="err-msg">Ovo polje je obavezno.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Adresa *</label>
+            <input type="text" value="Bulevar kralja Aleksandra 73">
+          </div>
+
+          <div class="field">
+            <label>Dodatne informacije</label>
+            <textarea placeholder="Opciono: radno vreme, napomene&hellip;"></textarea>
+          </div>
+
+          <div class="btn-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#s1_potvrda">+ Sačuvaj tačku</a>
+            <a class="btn btn-ghost" href="#s1_lista">Otkaži</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Pregled na mapi</h3>
+        <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:280px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;position:relative">
+          🗺
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);color:var(--danger);font-size:32px">📍</div>
+        </div>
+        <div style="font-size:13px;color:var(--ink-soft);margin-top:10px">
+          Popunite obavezna polja kako biste sačuvali tačku.
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s2_bez_tacaka" data-title="Nestly &amp;mdash; Konfiguracija zahteva tačke">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="#s1_lista">Tačke od interesa <span class="pill">0</span></a>
+    <a href="student_score.html#s2_konfiguracija" class="active">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri</a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Konfiguracija</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#fff5ec;color:var(--warn);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">!</div>
+      <h1 style="font-size:24px;margin:0">Potrebne su tačke od interesa</h1>
+      <p style="color:var(--ink-soft);max-width:440px;margin:8px auto 22px">
+        Nestly Score koristi vaše tačke od interesa za proračun relevantnosti oglasa. Morate definisati barem jednu tačku pre nego što podesite težinske faktore.
+      </p>
+
+      <div class="modal-note" style="text-align:left;margin-bottom:18px">
+        <strong>Šta su tačke od interesa?</strong><br>
+        Lokacije koje su vam važne u svakodnevnom životu &mdash; fakultet, posao, teretana, omiljene prodavnice. Sistem računa realno vreme putovanja od svakog oglasa do ovih tačaka.
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s1_dodaj">+ Dodaj prvu tačku</a>
+        <a class="btn btn-ghost" href="student.html#index">← Nazad</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<script>
+(function () {
+  var DEFAULT = "s1_lista";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

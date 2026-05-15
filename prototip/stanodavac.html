@@ -1,0 +1,874 @@
+<!-- Desanka Stanojevic 232/23 -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Nestly</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* --- view-switching: only the :target screen is shown --- */
+.screen { display: none; }
+.screen:target { display: block; }
+/* default screen shown when no hash is present */
+body:not(:has(.screen:target)) #stanodavac_index { display: block; }
+</style>
+<style>
+/* --- per-screen styles, scoped so they cannot leak between screens --- */
+
+</style>
+</head>
+<body>
+
+<section class="screen" id="s1_kreiranje" data-title="Nestly - Kreiranje oglasa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#stanodavac_index">Moji oglasi</a><a href="#s4_poruke">Poruke</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi">Moji oglasi <span class="pill">4</span></a>
+    <a href="#s1_kreiranje" class="active">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#stanodavac_index">← Pocetna -</a> Korak 1/2</div>
+    <div class="page-head">
+      <div>
+        <h1>Kreiranje novog oglasa</h1>
+        <p>Unesite sve detalje o nekretnini. Sva obavezna polja su označena zvezdicom (*).</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:18px">
+      <div>
+        <div class="card">
+          <h2>Osnovne informacije</h2>
+          <form>
+            <div class="field">
+              <label>Naslov oglasa *</label>
+              <input type="text" placeholder="npr. Dvosoban stan u centru Vračara">
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label>Adresa (ulica i broj) *</label>
+                <input type="text" placeholder="Cara Lazara 14">
+              </div>
+              <div class="field">
+                <label>Opština/Grad *</label>
+                <select>
+                  <option>Izaberite...</option>
+                  <option>Vračar</option>
+                  <option>Stari Grad</option>
+                  <option>Savski Venac</option>
+                  <option>Zvezdara</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label>Kvadratura (m²) *</label>
+                <input type="text" placeholder="54">
+              </div>
+              <div class="field">
+                <label>Cena iznajmljivanja (EUR) *</label>
+                <input type="text" placeholder="650">
+              </div>
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label>Broj soba *</label>
+                <select>
+                  <option>Garsonjera</option>
+                  <option>Jednosoban</option>
+                  <option>Dvosoban</option>
+                  <option>Trosoban</option>
+                  <option>Četvorosoban+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Sprat *</label>
+                <input type="text" placeholder="3">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Opis nekretnine</label>
+              <textarea placeholder="Opiš nekretninu: stanje, renovacija, orijentacija..."></textarea>
+              <div class="help">Opciono, ali preporucujemo da dodate opisan za bolju vidljivost oglasa.</div>
+            </div>
+
+            <div class="field">
+              <label>Dodatne pogodnosti</label>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                  <input type="checkbox" checked> Grejanje
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                  <input type="checkbox"> Klima
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                  <input type="checkbox" checked> Parking
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                  <input type="checkbox" checked> Internet
+                </label>
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+                  <input type="checkbox"> Nameštaj
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Lokacija</h2>
+          <p style="color:var(--ink-soft);margin:0 0 14px;font-size:14px">Kliknite na mapu da postavite pin marker na tačnu lokaciju nekretnine.</p>
+          <div style="background:linear-gradient(135deg,#cdd9d3,#7a9a8d);height:300px;border-radius:8px;display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;position:relative">
+            🗺
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);color:var(--danger);font-size:38px">📍</div>
+          </div>
+          <div style="margin-top:10px;font-size:13px;color:var(--ink-soft)">
+            <strong>Koordinate:</strong> 44.8050° N, 20.4720° E
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Fotografije</h2>
+          <p style="color:var(--ink-soft);margin:0 0 12px;font-size:14px">Dodajte fotografije nekretnine (min. 1, max. 10). Podržani formati: JPG, PNG, WEBP.</p>
+          
+          <div style="border:2px dashed var(--line);border-radius:8px;padding:32px;text-align:center;background:#faf7f0;cursor:pointer">
+            <div style="font-size:42px;margin-bottom:8px">📤</div>
+            <div style="font-weight:500;margin-bottom:4px">Kliknite ili prevucite fotografije ovde</div>
+            <div style="font-size:13px;color:var(--ink-soft)">Maksimum 5MB po fotografiji</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px">
+            <div style="aspect-ratio:4/3;background:linear-gradient(135deg,#e3ede8,#bfd4cb);border-radius:6px;display:grid;place-items:center;color:var(--accent);font-size:28px;position:relative">
+              🏠
+              <button style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:4px;padding:4px 8px;font-size:11px;cursor:pointer">✕</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-note">
+          <strong>Napomena:</strong> Nakon što kliknete "Objavi oglas", sistem će validirati sve podatke. Oglas će biti vidljiv studentima odmah nakon validacije.
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#s1_potvrda">Objavi oglas</a>
+          <a class="btn btn-ghost" href="#stanodavac_index">Otkazi</a>
+          <button class="btn btn-ghost">💾 Sačuvaj draft</button>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card tight">
+          <h3 style="margin-top:0">Pregled</h3>
+          <div style="font-size:13px;line-height:1.7;color:var(--ink-soft)">
+            <strong style="color:var(--ink);display:block;margin-bottom:4px">Naslov:</strong>
+            Dvosoban stan u centru Vračara
+
+            <strong style="color:var(--ink);display:block;margin:10px 0 4px">Lokacija:</strong>
+            Cara Lazara 14, Vračar
+
+            <strong style="color:var(--ink);display:block;margin:10px 0 4px">Detalji:</strong>
+            54m² · 2 sobe · 3. sprat · 650€
+
+            <strong style="color:var(--ink);display:block;margin:10px 0 4px">Pogodnosti:</strong>
+            Grejanje, Parking, Internet
+          </div>
+        </div>
+
+        <div class="card tight">
+          <h3 style="margin-top:0">Saveti</h3>
+          <ul style="font-size:13px;line-height:1.7;color:var(--ink-soft);margin:0;padding-left:18px">
+            <li>Dodajte najmanje 3 fotografije za bolju vidljivost</li>
+            <li>Budite precizni sa adresom - studenti koriste Nestly Score</li>
+            <li>Detaljan opis povećava šanse za kontakt</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="screen" id="s1_potvrda" data-title="Nestly - Oglas objavljen">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#stanodavac_index">Moji oglasi</a><a href="#s4_poruke">Poruke</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi">Moji oglasi <span class="pill">5</span></a>
+    <a href="#s1_kreiranje" class="active">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s1_kreiranje">← Kreiranje oglasa -</a> Korak 2/2</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:640px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#e7f3ea;color:var(--ok);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">✓</div>
+      <h1 style="font-size:28px;margin:0">Oglas uspešno objavljen!</h1>
+      <p style="color:var(--ink-soft);max-width:480px;margin:8px auto 22px">
+        Vaš oglas <strong>Dvosoban stan u centru Vračara</strong> je sada vidljiv svim studentima na platformi Nestly.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:10px;padding:18px;text-align:left;margin-bottom:20px">
+        <div class="listing-preview">
+          <div class="thumb">🏠</div>
+          <div>
+            <h3 style="margin:0 0 8px">Dvosoban stan u centru Vračara</h3>
+            <dl class="kv" style="font-size:13px">
+              <dt>Adresa</dt><dd>Cara Lazara 14, Vračar</dd>
+              <dt>Detalji</dt><dd>54m² · 2 sobe · 3. sprat</dd>
+              <dt>Cena</dt><dd><strong>650 EUR/mesečno</strong></dd>
+              <dt>ID oglasa</dt><dd>#2841</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-note">
+        <strong>Šta dalje?</strong> Studenti koji pronalaze vaš oglas mogu vam poslati upit putem sistema poruka. Proveravajte inbox redovno kako ne biste propustili zainteresovane studente.
+      </div>
+
+      <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);margin:22px 0">
+        <div class="stat"><div class="num">0</div><div class="lbl">Pregleda (0h)</div></div>
+        <div class="stat"><div class="num">0</div><div class="lbl">U omiljenim</div></div>
+        <div class="stat"><div class="num">0</div><div class="lbl">Upita</div></div>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s3_analitika">Pregled statistike</a>
+        <a class="btn btn-ghost" href="#s2_moji_oglasi">Moji oglasi</a>
+        <a class="btn btn-ghost" href="#s1_kreiranje">+ Dodaj još jedan</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="screen" id="s2_moji_oglasi" data-title="Nestly - Moji oglasi">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#stanodavac_index" class="active">Moji oglasi</a><a href="#s4_poruke">Poruke</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi" class="active">Moji oglasi <span class="pill">4</span></a>
+    <a href="#s1_kreiranje">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="page-head">
+      <div>
+        <h1>Moji oglasi</h1>
+        <p>Upravljanje statusom, pregled statistike i ažuriranje oglasa.</p>
+      </div>
+      <a class="btn btn-primary" href="#s1_kreiranje">+ Novi oglas</a>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">4</div><div class="lbl">Aktivnih</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">Deaktivovanih</div></div>
+      <div class="stat"><div class="num">258</div><div class="lbl">Ukupno pregleda</div></div>
+      <div class="stat"><div class="num">24</div><div class="lbl">U omiljenim</div></div>
+    </div>
+
+    <div class="card tight">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Oglas</th>
+            <th>Cena</th>
+            <th>Status</th>
+            <th>Pregledi (7d)</th>
+            <th>Upiti</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:60px;height:45px;background:linear-gradient(135deg,#e3ede8,#bfd4cb);border-radius:6px;display:grid;place-items:center;font-size:20px">🏠</div>
+                <div>
+                  <strong>Dvosoban stan u centru Vračara</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cara Lazara 14 · 54m² · ID #2780</div>
+                </div>
+              </div>
+            </td>
+            <td><strong>650 EUR</strong></td>
+            <td><span class="badge badge-ok">Aktivan</span></td>
+            <td>84</td>
+            <td><span class="badge badge-info">5 novih</span></td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s3_analitika">Statistika</a>
+                <button class="btn btn-warn btn-sm">Deaktiviraj</button>
+                <button class="btn btn-danger btn-sm">Obriši</button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:60px;height:45px;background:linear-gradient(135deg,#e3ede8,#bfd4cb);border-radius:6px;display:grid;place-items:center;font-size:20px">🏠</div>
+                <div>
+                  <strong>Jednosoban na Bulevaru</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Bulevar kralja Aleksandra 88a · 42m² · ID #2654</div>
+                </div>
+              </div>
+            </td>
+            <td><strong>540 EUR</strong></td>
+            <td><span class="badge badge-ok">Aktivan</span></td>
+            <td>67</td>
+            <td><span class="badge badge-info">2 nova</span></td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s3_analitika">Statistika</a>
+                <button class="btn btn-warn btn-sm">Deaktiviraj</button>
+                <button class="btn btn-danger btn-sm">Obriši</button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:60px;height:45px;background:linear-gradient(135deg,#e3ede8,#bfd4cb);border-radius:6px;display:grid;place-items:center;font-size:20px">🏠</div>
+                <div>
+                  <strong>Garsonjera Cetinjska</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cetinjska 22 · 28m² · ID #2511</div>
+                </div>
+              </div>
+            </td>
+            <td><strong>420 EUR</strong></td>
+            <td><span class="badge badge-ok">Aktivan</span></td>
+            <td>54</td>
+            <td>—</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s3_analitika">Statistika</a>
+                <button class="btn btn-warn btn-sm">Deaktiviraj</button>
+                <button class="btn btn-danger btn-sm">Obriši</button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:60px;height:45px;background:linear-gradient(135deg,#e3ede8,#bfd4cb);border-radius:6px;display:grid;place-items:center;font-size:20px">🏠</div>
+                <div>
+                  <strong>Trosoban stan Krunska</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Krunska 9 · 68m² · ID #2409</div>
+                </div>
+              </div>
+            </td>
+            <td><strong>750 EUR</strong></td>
+            <td><span class="badge badge-ok">Aktivan</span></td>
+            <td>53</td>
+            <td>—</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s3_analitika">Statistika</a>
+                <button class="btn btn-warn btn-sm">Deaktiviraj</button>
+                <button class="btn btn-danger btn-sm">Obriši</button>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="opacity:.5">
+            <td>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:60px;height:45px;background:#ece8e0;border-radius:6px;display:grid;place-items:center;font-size:20px">🏠</div>
+                <div>
+                  <strong>Dvoiposoban Vracar</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Maksima Gorkog 22 · 62m² · ID #2301</div>
+                </div>
+              </div>
+            </td>
+            <td><strong>680 EUR</strong></td>
+            <td><span class="badge badge-mute">Deaktiviran</span></td>
+            <td>—</td>
+            <td>—</td>
+            <td>
+              <div class="btn-row">
+                <button class="btn btn-primary btn-sm">Reaktiviraj</button>
+                <button class="btn btn-danger btn-sm">Obriši</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="screen" id="s3_analitika" data-title="Nestly - Analitika oglasa">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#stanodavac_index">Moji oglasi</a><a href="#s4_poruke">Poruke</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi">Moji oglasi <span class="pill">4</span></a>
+    <a href="#s1_kreiranje">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika" class="active">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="page-head">
+      <div>
+        <h1>Statistika oglasa</h1>
+        <p>Dvosoban stan u centru Vračara · ID #2780</p>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-ghost btn-sm">⤓ Preuzmi (PDF)</button>
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+          <option>Poslednja nedelja</option>
+          <option>Poslednji mesec</option>
+          <option>Svo vreme</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(5,1fr)">
+      <div class="stat"><div class="num">84</div><div class="lbl">Ukupno pregleda</div></div>
+      <div class="stat"><div class="num">67</div><div class="lbl">Jedinstvenih posetilaca</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">U omiljenim</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">Upita</div></div>
+      <div class="stat"><div class="num">82%</div><div class="lbl">Prosečan Nestly Score</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:18px">
+      <div>
+        <div class="card">
+          <h2>Pregledi tokom vremena</h2>
+          <div style="background:linear-gradient(135deg,#f6f3ee,#efeae0);height:240px;border-radius:8px;display:grid;place-items:center;color:var(--ink-soft);font-size:14px">
+            📊 Grafikon promena broja pregleda po danima
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Profil zainteresovanih studenata</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+            <div>
+              <h3 style="font-size:14px;color:var(--ink-soft);margin:0 0 12px">Distribucija po fakultetima</h3>
+              <div style="background:linear-gradient(135deg,#f6f3ee,#efeae0);height:200px;border-radius:8px;display:grid;place-items:center;color:var(--ink-soft);font-size:13px">
+                📊 Pie chart:<br>40% ETF, 25% FON, 20% MF, 15% ostali
+              </div>
+            </div>
+            <div>
+              <h3 style="font-size:14px;color:var(--ink-soft);margin:0 0 12px">Preferencije studenata</h3>
+              <dl class="kv" style="font-size:13px">
+                <dt>Traži parking</dt><dd>68%</dd>
+                <dt>Traži grejanje</dt><dd>82%</dd>
+                <dt>Traži klimu</dt><dd>54%</dd>
+                <dt>Traži namestaj</dt><dd>45%</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Conversion rate</h2>
+          <div style="background:#faf7f0;padding:18px;border-radius:8px;border:1px solid var(--line)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+              <span style="font-size:14px;color:var(--ink-soft)">Pregledi → Upiti</span>
+              <span style="font-size:22px;font-weight:600;font-family:'Fraunces',serif">5.95%</span>
+            </div>
+            <div style="height:8px;background:var(--line);border-radius:99px;overflow:hidden">
+              <div style="width:5.95%;height:100%;background:var(--accent)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card tight">
+          <h3 style="margin-top:0">Prosečan budžet</h3>
+          <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:600">628 EUR</div>
+          <p style="font-size:13px;color:var(--ink-soft);margin:8px 0 0">Prosečan budžet studenata koji su pregledali oglas</p>
+        </div>
+
+        <div class="card tight">
+          <h3 style="margin-top:0">Top tačke od interesa</h3>
+          <ol style="font-size:13px;line-height:1.8;margin:0;padding-left:18px;color:var(--ink-soft)">
+            <li>Elektrotehnički fakultet</li>
+            <li>Fakultet organizacionih nauka</li>
+            <li>Kalemegdan</li>
+          </ol>
+        </div>
+
+        <div class="card tight">
+          <h3 style="margin-top:0">Preporuke</h3>
+          <p style="font-size:13px;color:var(--ink-soft);margin:0">
+            Vaš oglas ima dobru vidljivost. Većina studenata traži parking - razmislite da istakne te ovu pogodnost u naslovu.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="screen" id="s4_konverzacija" data-title="Nestly - Konverzacija">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#stanodavac_index">Moji oglasi</a><a href="#s4_poruke" class="active">Poruke</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi">Moji oglasi <span class="pill">4</span></a>
+    <a href="#s1_kreiranje">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke" class="active">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s4_poruke">← Poruke</a></div>
+    <div class="page-head">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="avatar" style="width:52px;height:52px;font-size:18px">SĐ</div>
+        <div>
+          <h1 style="margin:0;font-size:22px">Stefan Đorđević</h1>
+          <p style="margin:4px 0 0;font-size:14px">Oglas: Dvosoban stan u centru Vračara · ID #2780</p>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary btn-sm">✓ Označi kao rešeno</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:18px">
+      <div class="card" style="min-height:500px">
+        <div class="thread" style="max-height:none;min-height:400px;margin-bottom:18px">
+          <div class="msg in">
+            Poštovani, interesuje me vaš stan na Cara Lazara 14. Da li je još uvek dostupan za iznajmljivanje?
+            <span class="meta">Stefan Đ. · Pre 1h</span>
+          </div>
+
+          <div class="msg in">
+            Takođe, da li postoji mogućnost razgledanja stana ovog vikenda?
+            <span class="meta">Stefan Đ. · Pre 1h</span>
+          </div>
+
+          <div class="msg out">
+            Dobar dan Stefane, stan je i dalje dostupan. Za razgledanje bih predložio subotu oko 14h ako vam odgovara?
+            <span class="meta">Vi · Pre 32 min</span>
+          </div>
+
+          <div class="msg in">
+            Odlično, subota u 14h mi savršeno odgovara. Vidimo se tada!
+            <span class="meta">Stefan Đ. · Pre 12 min</span>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--line);padding-top:18px">
+          <textarea placeholder="Napišite odgovor..." style="width:100%;min-height:90px;padding:12px;border:1px solid var(--line);border-radius:8px;font:inherit;resize:vertical"></textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+            <div style="font-size:12px;color:var(--ink-soft)">Student će dobiti notifikaciju na email</div>
+            <button class="btn btn-primary">Pošalji</button>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card tight">
+          <h3 style="margin-top:0">Informacije</h3>
+          <dl class="kv" style="font-size:13px">
+            <dt>Student</dt><dd>Stefan Đorđević</dd>
+            <dt>Email</dt><dd>s.djordjevic@etf.bg.ac.rs</dd>
+            <dt>Fakultet</dt><dd>ETF Beograd</dd>
+            <dt>Kontakt započet</dt><dd>15.4.2026, 14:22</dd>
+            <dt>Status</dt><dd><span class="badge badge-info">Odgovoreno</span></dd>
+          </dl>
+        </div>
+
+        <div class="card tight">
+          <h3 style="margin-top:0">Oglas</h3>
+          <div style="background:linear-gradient(135deg,#e3ede8,#bfd4cb);height:100px;border-radius:6px;display:grid;place-items:center;font-size:32px;margin-bottom:10px">🏠</div>
+          <strong style="font-size:14px">Dvosoban stan u centru Vračara</strong>
+          <div style="font-size:12px;color:var(--ink-soft);margin-top:4px">54m² · 2 sobe · 650 EUR</div>
+          <a href="#s3_analitika" class="btn btn-ghost btn-sm" style="margin-top:10px;width:100%;justify-content:center">Pregled oglasa →</a>
+        </div>
+
+        <div class="modal-note">
+          <strong>Tip:</strong> Brzo reagovanje na upite povećava šanse da student iznajmi nekretninu.
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="screen" id="s4_poruke" data-title="Nestly - Poruke">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#stanodavac_index">Moji oglasi</a><a href="#s4_poruke" class="active">Poruke</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi">Moji oglasi <span class="pill">4</span></a>
+    <a href="#s1_kreiranje">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke" class="active">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika">Statistika</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="page-head">
+      <div>
+        <h1>Poruke</h1>
+        <p>Upiti studenata i konverzacije o vašim oglasima.</p>
+      </div>
+      <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        <option>Sve poruke</option>
+        <option>Novi upiti</option>
+        <option>Odgovoreno</option>
+        <option>Rešeno</option>
+      </select>
+    </div>
+
+    <div style="display:grid;grid-template-columns:380px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)">
+      <div style="border-right:1px solid var(--line);background:#faf7f0">
+        <div style="padding:14px;border-bottom:1px solid var(--line)">
+          <input type="text" placeholder="Pretraži poruke..." style="width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        </div>
+
+        <div style="overflow-y:auto;max-height:600px">
+          <a href="#s4_konverzacija" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;background:#fff">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">SĐ</div>
+                <div>
+                  <strong>Stefan Đorđević</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cara Lazara 14 · #2780</div>
+                </div>
+              </div>
+              <span class="badge badge-pending" style="font-size:11px">Novo</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Da li je stan još uvek dostupan? Interesuje me...</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Pre 12 min</div>
+          </a>
+
+          <a href="#" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">MJ</div>
+                <div>
+                  <strong>Marija Jovanović</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Bulevar 88a · #2654</div>
+                </div>
+              </div>
+              <span class="badge badge-info" style="font-size:11px">Odgovoreno</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Hvala na odgovoru! Da li bi bilo moguće...</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Pre 2h</div>
+          </a>
+
+          <a href="#" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">NP</div>
+                <div>
+                  <strong>Nikola Petrović</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cetinjska 22 · #2511</div>
+                </div>
+              </div>
+              <span class="badge badge-pending" style="font-size:11px">Novo</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Interesuje me dali je parking obezbeđen...</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Pre 4h</div>
+          </a>
+
+          <a href="#" style="display:block;padding:14px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;opacity:.6">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:6px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="width:42px;height:42px;font-size:16px">AK</div>
+                <div>
+                  <strong>Ana Kostić</strong>
+                  <div style="font-size:12px;color:var(--ink-soft)">Cara Lazara 14 · #2780</div>
+                </div>
+              </div>
+              <span class="badge badge-mute" style="font-size:11px">Rešeno</span>
+            </div>
+            <div style="font-size:13px;color:var(--ink-soft)">Hvala na informacijama!</div>
+            <div style="font-size:11px;color:var(--ink-soft);margin-top:6px">Juče</div>
+          </a>
+        </div>
+      </div>
+
+      <div style="padding:22px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft)">
+        <div style="text-align:center">
+          <div style="font-size:48px;margin-bottom:12px">💬</div>
+          <div style="font-size:15px">Izaberite konverzaciju da biste videli poruke</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<section class="screen" id="stanodavac_index" data-title="Nestly - Stanodavac">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span> <span style="font-family:'Inter',sans-serif;font-size:11px;font-weight:500;background:var(--accent);color:#fff;padding:2px 8px;border-radius:99px;margin-left:8px;letter-spacing:.08em">STANODAVAC</span></div>
+  <nav class="topnav"><a href="#" class="active">Moji oglasi</a><a href="#">Poruke</a><a href="#">Pomoć</a></nav>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Jovan M.</span><div class="avatar" style="background:var(--accent)">JM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="#stanodavac_index" class="active">Komandna tabla</a>
+    <h4>Oglasi</h4>
+    <a href="#s2_moji_oglasi">Moji oglasi <span class="pill">4</span></a>
+    <a href="#s1_kreiranje">+ Novi oglas</a>
+    <h4>Komunikacija</h4>
+    <a href="#s4_poruke">Poruke <span class="pill">7</span></a>
+    <h4>Analitika</h4>
+    <a href="#s3_analitika">Statistika</a>
+  </aside>
+
+  <main class="main">
+    <h1 style="font-size:36px">Dobrodošli, Jovane</h1>
+    <p style="color:var(--ink-soft);font-size:16px;margin-top:-8px">Pregled vaših oglasa i aktivnosti na platformi.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">4</div><div class="lbl">Aktivnih oglasa</div></div>
+      <div class="stat"><div class="num">142</div><div class="lbl">Pregleda (7 dana)</div></div>
+      <div class="stat"><div class="num">7</div><div class="lbl">Nepročitanih poruka</div></div>
+      <div class="stat"><div class="num">18</div><div class="lbl">U omiljenim</div></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div class="card">
+        <h2>1. Kreiranje oglasa</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Objavite novi oglas za vašu nekretninu sa svim detaljima.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="#s1_kreiranje">+ Kreiraj oglas</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. Upravljanje oglasima</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Deaktivirajte, reaktivirajte ili obrišite postojeće oglase.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="#s2_moji_oglasi">Moji oglasi</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3. Analitika</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Pregledajte statistiku pregleda i profil zainteresovanih studenata.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="#s3_analitika">Statistika oglasa</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>4. Poruke</h2>
+        <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Odgovarajte na upite studenata i upravljajte konverzacijama.</p>
+        <div class="btn-row">
+          <a class="btn btn-ghost btn-sm" href="#s4_poruke">Inbox <span class="badge badge-pending">7 novih</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Najnovije aktivnosti</h2>
+      <table class="data">
+        <tr>
+          <td>Novi pregled oglasa</td>
+          <td>Cara Lazara 14 · ID #2780</td>
+          <td style="color:var(--ink-soft);font-size:13px">Pre 12 min</td>
+        </tr>
+        <tr>
+          <td>Nova poruka</td>
+          <td>Stefan Đ. pitao za termin razgledanja</td>
+          <td style="color:var(--ink-soft);font-size:13px">Pre 1h</td>
+        </tr>
+        <tr>
+          <td>Dodato u omiljene</td>
+          <td>Bulevar 88a · ID #2654</td>
+          <td style="color:var(--ink-soft);font-size:13px">Pre 3h</td>
+        </tr>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+
+<script>
+// Ensure a screen is always visible; default to the landing screen.
+(function () {
+  var DEFAULT = "stanodavac_index";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) {
+    location.replace("#" + DEFAULT);
+  }
+  // scroll to top on every in-page navigation
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

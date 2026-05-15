@@ -1,0 +1,488 @@
+<!-- Desanka Stanojevic 232/23 -->
+ <!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<title>Nestly &amp;mdash; Pronađi cimera</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.screen { display: none; }
+.screen:target { display: block; }
+body:not(:has(.screen:target)) #s4_lista { display: block; }
+</style>
+</head>
+<body>
+
+<section class="screen" id="s4_lista" data-title="Nestly &amp;mdash; Pronađi cimera">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="#s4_lista" class="active">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 1/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Pronađi cimera</h1>
+        <p>Korisnici rangirani prema kompatibilnosti životnih navika i lokacijskih preferencija sa vašim profilom.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-ghost" href="#s4_zahtevi">Zahtevi <span class="pill" style="background:var(--accent);color:#fff;margin-left:4px">1</span></a>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><div class="num">24</div><div class="lbl">Potencijalnih cimera</div></div>
+      <div class="stat"><div class="num">87%</div><div class="lbl">Najviša kompatibilnost</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl">Novi zahtev</div></div>
+    </div>
+
+    <div class="card tight">
+      <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+        <input type="text" placeholder="Pretraga po imenu ili fakultetu&hellip;" style="flex:1;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+        <select style="padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit">
+          <option>Sortiraj: Kompatibilnost</option><option>Nedavno aktivni</option><option>Po godinama</option>
+        </select>
+      </div>
+
+      <table class="data">
+        <thead><tr><th>Korisnik</th><th>Kompatibilnost</th><th>Ključne navike</th><th>Aktivnost</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#b4541a">AA</div>
+                <div>
+                  <div style="font-weight:600">Ana A.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; ETF</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-ok" style="font-size:13px">87%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">Nepušač &bull; Rano ustaje &bull; Bez ljubimaca</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 3h</td>
+            <td><a class="btn btn-ghost btn-sm" href="#s4_profil">Profil →</a></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#2f5d4f">NN</div>
+                <div>
+                  <div style="font-weight:600">Nikola N.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; PMF</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-ok" style="font-size:13px">81%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">Nepušač &bull; Kasno ustaje &bull; Ima mačku</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 8h</td>
+            <td><a class="btn btn-ghost btn-sm" href="#s4_profil">Profil →</a></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#5b5b58">JJ</div>
+                <div>
+                  <div style="font-weight:600">Jelena J.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Zaposlena</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-info" style="font-size:13px">68%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">Nepušač &bull; Rano ustaje &bull; Bez ljubimaca</td>
+            <td style="font-size:13px;color:var(--ink-soft)">juče</td>
+            <td><a class="btn btn-ghost btn-sm" href="#s4_profil">Profil →</a></td>
+          </tr>
+          <tr style="opacity:.7">
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#9c2a2a">PP</div>
+                <div>
+                  <div style="font-weight:600">Petar P.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; FON</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-mute" style="font-size:13px">45%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">Pušač &bull; Noćna ptica &bull; Ima psa</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 3 dana</td>
+            <td><a class="btn btn-ghost btn-sm" href="#s4_profil">Profil →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s4_zahtevi" data-title="Nestly &amp;mdash; Zahtevi za uparivanje">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="#s4_lista" class="active">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s4_lista">← Cimeri -</a> Zahtevi</div>
+    <div class="page-head">
+      <div>
+        <h1>Zahtevi za uparivanje</h1>
+        <p>Pregled primljenih i poslatih zahteva. Komunikacija se otključava nakon obostrano prihvaćenog zahteva.</p>
+      </div>
+    </div>
+
+    <div class="card tight">
+      <h3 style="margin:0 0 12px">Primljeni zahtevi <span class="badge badge-pending" style="margin-left:6px">1 novi</span></h3>
+      <table class="data">
+        <thead><tr><th>Pošiljalac</th><th>Kompatibilnost</th><th>Poruka</th><th>Primljeno</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#b4541a">AA</div>
+                <div>
+                  <div style="font-weight:600">Ana A.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; ETF</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-ok">87%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">&bdquo;Zdravo, videla sam da imamo slične navike&hellip;&ldquo;</td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 3h</td>
+            <td>
+              <div class="btn-row">
+                <a class="btn btn-ghost btn-sm" href="#s4_profil">Profil</a>
+                <a class="btn btn-primary btn-sm" href="#s4_prihvacen">Prihvati</a>
+                <a class="btn btn-ghost btn-sm" href="#s4_odbijen" style="color:var(--danger)">Odbij</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card tight" style="margin-top:16px">
+      <h3 style="margin:0 0 12px">Poslati zahtevi</h3>
+      <table class="data">
+        <thead><tr><th>Primalac</th><th>Kompatibilnost</th><th>Poslato</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#2f5d4f">NN</div>
+                <div>
+                  <div style="font-weight:600">Nikola N.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; PMF</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-ok">81%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 2 dana</td>
+            <td><span class="badge badge-pending">Čeka odgovor</span></td>
+            <td><a class="btn btn-ghost btn-sm" href="#s4_profil">Profil →</a></td>
+          </tr>
+          <tr style="opacity:.65">
+            <td>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="avatar" style="background:#5b5b58">MP</div>
+                <div>
+                  <div style="font-weight:600">Mina P.</div>
+                  <div style="font-size:12px;color:var(--ink-soft)">Student &bull; FASPER</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="badge badge-info">72%</span></td>
+            <td style="font-size:13px;color:var(--ink-soft)">pre 5 dana</td>
+            <td><span class="badge badge-rej">Odbijen</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s4_profil" data-title="Nestly &amp;mdash; Profil cimera">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="#s4_lista" class="active">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s4_lista">← Cimeri -</a> Korak 2/3</div>
+    <div class="page-head">
+      <div>
+        <h1>Profil korisnika: Ana A.</h1>
+        <p>Detaljan prikaz kompatibilnosti i životnih navika. Lični podaci (prezime, kontakt) postaju vidljivi tek nakon obostrano prihvaćenog zahteva.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#s4_zahtev_poslat">Pošalji zahtev za uparivanje</a>
+        <a class="btn btn-ghost" href="#s4_lista">← Nazad</a>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:18px">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+          <div class="avatar" style="background:#b4541a;width:64px;height:64px;font-size:22px">AA</div>
+          <div>
+            <h2 style="margin:0">Ana A.</h2>
+            <div style="font-size:13px;color:var(--ink-soft)">Student &bull; ETF &bull; 3. godina</div>
+          </div>
+        </div>
+
+        <div style="text-align:center;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:14px">
+          <div style="font-family:'Fraunces',serif;font-size:48px;font-weight:600;color:var(--ok);line-height:1">87%</div>
+          <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:4px">Kompatibilnost</div>
+        </div>
+
+        <h3 style="margin-top:0">Lokacijske preferencije</h3>
+        <dl class="kv" style="font-size:13px">
+          <dt>Preferirana zona</dt><dd>Vračar, Zvezdara</dd>
+          <dt>Max. budžet</dt><dd>250 € po osobi</dd>
+          <dt>Tip prevoza</dt><dd>Javni prevoz</dd>
+          <dt>Željen datum useljenja</dt><dd>septembar 2026.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h2>Poređenje životnih navika</h2>
+        <p style="color:var(--ink-soft);margin-top:-6px;font-size:13.5px">Tamno polje = poklapanje sa vašim navikama.</p>
+
+        <table class="data" style="margin-top:10px">
+          <thead><tr><th>Kategorija</th><th>Vi</th><th>Ana A.</th><th style="text-align:right">Poklapanje</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Pušenje</td>
+              <td>Nepušač</td>
+              <td>Nepušač</td>
+              <td style="text-align:right"><span class="badge badge-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Raspored spavanja</td>
+              <td>Rano ustaje</td>
+              <td>Rano ustaje</td>
+              <td style="text-align:right"><span class="badge badge-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Nivo buke</td>
+              <td>Tiho</td>
+              <td>Tiho</td>
+              <td style="text-align:right"><span class="badge badge-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Kućni ljubimci</td>
+              <td>Nema</td>
+              <td>Nema</td>
+              <td style="text-align:right"><span class="badge badge-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Čistoća</td>
+              <td>Veoma uredno</td>
+              <td>Umereno uredno</td>
+              <td style="text-align:right"><span class="badge badge-pending">~</span></td>
+            </tr>
+            <tr>
+              <td>Gosti u stanu</td>
+              <td>Retko</td>
+              <td>Ponekad</td>
+              <td style="text-align:right"><span class="badge badge-pending">~</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="modal-note" style="margin-top:18px">
+          <strong>Interpretacija:</strong> 4 od 6 kategorija se poklapaju u potpunosti, 2 pokazuju delimična odstupanja. Ovo je visok nivo kompatibilnosti.
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s4_odbijen" data-title="Nestly &amp;mdash; Zahtev odbijen">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="#s4_lista" class="active">Cimeri</a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s4_zahtevi">← Zahtevi -</a> Odbijen</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#ece8e0;color:var(--ink-soft);display:grid;place-items:center;font-size:28px;margin:0 auto 12px">✕</div>
+      <h1 style="font-size:26px;margin:0">Zahtev odbijen</h1>
+      <p style="color:var(--ink-soft);max-width:440px;margin:8px auto 22px">
+        Zahtev korisnika <strong>Ana A.</strong> je odbijen i uklonjen iz vaše liste zahteva. Korisnik neće biti obavešten o razlozima.
+      </p>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s4_zahtevi">Moji zahtevi</a>
+        <a class="btn btn-ghost" href="#s4_lista">← Nazad na listu cimera</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s4_prihvacen" data-title="Nestly &amp;mdash; Zahtev prihvaćen">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="#s4_lista" class="active">Cimeri</a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="#s4_zahtevi">← Zahtevi -</a> Prihvaćen</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#e7f3ea;color:var(--ok);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">✓</div>
+      <h1 style="font-size:26px;margin:0">Zahtev prihvaćen</h1>
+      <p style="color:var(--ink-soft);max-width:440px;margin:8px auto 22px">
+        Sada možete komunicirati sa korisnikom <strong>Ana A.</strong> putem sistema za poruke.
+        Njeni kontakt podaci su sada dostupni u vašem profilu.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Uparen korisnik</dt><dd>Ana Anić (ETF)</dd>
+          <dt>Email</dt><dd>ana.anic@student.etf.rs</dd>
+          <dt>Kompatibilnost</dt><dd><span class="badge badge-ok">87%</span></dd>
+          <dt>Status</dt><dd style="color:var(--ok)">✓ Uparivanje aktivno</dd>
+        </dl>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#">Pošalji poruku</a>
+        <a class="btn btn-ghost" href="#s4_zahtevi">← Nazad na zahteve</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+<section class="screen" id="s4_zahtev_poslat" data-title="Nestly &amp;mdash; Zahtev poslat">
+<header class="topbar">
+  <div class="brand">Nest<span>ly</span></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar">
+    <h4>Pregled</h4>
+    <a href="student.html#index">Komandna tabla</a>
+    <h4>Preferencije</h4>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
+    <h4>Pretraga</h4>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="#s4_lista" class="active">Cimeri <span class="pill">1</span></a>
+    <h4>Iskustvo</h4>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
+  </aside>
+
+  <main class="main" style="max-width:none">
+    <div class="crumbs"><a href="student.html#index">← Prototip -</a> Korak 3/3</div>
+
+    <div class="card" style="text-align:center;padding:48px 28px;max-width:580px;margin:40px auto">
+      <div style="width:72px;height:72px;border-radius:50%;background:#e7f3ea;color:var(--ok);display:grid;place-items:center;font-size:36px;margin:0 auto 12px">✓</div>
+      <h1 style="font-size:26px;margin:0">Zahtev poslat</h1>
+      <p style="color:var(--ink-soft);max-width:420px;margin:8px auto 22px">
+        Zahtev za uparivanje je uspešno poslat korisniku <strong>Ana A.</strong> Bićete obavešteni čim odgovori.
+      </p>
+
+      <div style="background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:left;margin-bottom:18px">
+        <dl class="kv" style="font-size:13px">
+          <dt>Primalac</dt><dd>Ana A. (ETF)</dd>
+          <dt>Kompatibilnost</dt><dd><span class="badge badge-ok">87%</span></dd>
+          <dt>Status</dt><dd><span class="badge badge-pending">Čeka odgovor</span></dd>
+          <dt>Poslato</dt><dd>15.04.2026 15:42</dd>
+        </dl>
+      </div>
+
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#s4_zahtevi">Moji zahtevi</a>
+        <a class="btn btn-ghost" href="#s4_lista">← Nazad na listu</a>
+      </div>
+    </div>
+  </main>
+</div>
+</section>
+
+<script>
+(function () {
+  var DEFAULT = "s4_lista";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,30 +1,37 @@
-<!-- Autor: Aleksandra Stojanović 2023/0234 -->
+<!-- Aleksandra Stojanovic 234/23 -->
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <title>Nestly - Studentski prototip</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Nestly - Studentski prototip</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.screen { display: none; }
+.screen:target { display: block; }
+body:not(:has(.screen:target)) #index { display: block; }
+</style>
 </head>
 <body>
+
+<section class="screen" id="index" data-title="Nestly - Studentski prototip">
 <header class="topbar">
   <div class="brand">Nest<span>ly</span></div>
   <nav class="topnav"><a href="#" class="active">Prototip</a><a href="#">Dokumentacija</a></nav>
-  <div class="user-chip"><span>Marko M.</span><div class="avatar">MM</div></div>
+  <div class="user-chip"><a href="login.html" class="btn btn-ghost btn-sm">Odjava</a><span>Marko M.</span><div class="avatar">MM</div></div>
 </header>
 
 <div class="shell">
   <aside class="sidebar">
     <h4>Pregled</h4>
-    <a href="index.html" class="active">Komandna tabla</a>
+    <a href="#index" class="active">Komandna tabla</a>
     <h4>Preferencije</h4>
-    <a href="s1_lista.html">Tačke od interesa <span class="pill">3</span></a>
-    <a href="s2_konfiguracija.html">Nestly Score</a>
+    <a href="student_tacke.html#s1_lista">Tačke od interesa <span class="pill">3</span></a>
+    <a href="student_score.html#s2_konfiguracija">Nestly Score</a>
     <h4>Pretraga</h4>
-    <a href="s3_pretraga.html">Nekretine</a>
-    <a href="s4_lista.html">Cimeri <span class="pill">1</span></a>
+    <a href="student_pretraga.html#s3_pretraga">Nekretine</a>
+    <a href="student_cimeri.html#s4_lista">Cimeri <span class="pill">1</span></a>
     <h4>Iskustvo</h4>
-    <a href="s5_pregled.html">Recenzije</a>
+    <a href="student_recenzije.html#s5_pregled">Recenzije</a>
   </aside>
 
   <main class="main">
@@ -35,7 +42,7 @@
         <h2>1. Tačke od interesa</h2>
         <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Definisanje ključnih lokacija za proračun Nestly Score-a.</p>
         <div class="btn-row">
-          <a class="btn btn-primary btn-sm" href="s1_lista.html">Pokreni proces</a>
+          <a class="btn btn-primary btn-sm" href="student_tacke.html#s1_lista">Pokreni proces</a>
         </div>
       </div>
 
@@ -43,7 +50,7 @@
         <h2>2. Konfiguracija Nestly Score-a</h2>
         <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Podešavanje težinskih faktora za personalizovano rangiranje.</p>
         <div class="btn-row">
-          <a class="btn btn-ghost btn-sm" href="s2_konfiguracija.html">Konfiguracija</a>
+          <a class="btn btn-ghost btn-sm" href="student_score.html#s2_konfiguracija">Konfiguracija</a>
         </div>
       </div>
 
@@ -51,7 +58,7 @@
         <h2>3. Filtriranje po vremenu putovanja</h2>
         <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Pretraga nekretina prema realnom vremenu do tačaka od interesa.</p>
         <div class="btn-row">
-          <a class="btn btn-ghost btn-sm" href="s3_pretraga.html">Pretraga</a>
+          <a class="btn btn-ghost btn-sm" href="student_pretraga.html#s3_pretraga">Pretraga</a>
         </div>
       </div>
 
@@ -59,7 +66,7 @@
         <h2>4. Matchmaking za cimere</h2>
         <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Pronalaženje kompatibilnih cimera po životnim navikama.</p>
         <div class="btn-row">
-          <a class="btn btn-ghost btn-sm" href="s4_lista.html">Pretraga cimera</a>
+          <a class="btn btn-ghost btn-sm" href="student_cimeri.html#s4_lista">Pretraga cimera</a>
         </div>
       </div>
 
@@ -67,7 +74,7 @@
         <h2>5. Ostavljanje recenzija</h2>
         <p style="color:var(--ink-soft);margin-top:0; font-size: 14px;">Ocenjivanje kvaliteta života u kvartu i iskustva sa stanodavcima.</p>
         <div class="btn-row">
-          <a class="btn btn-ghost btn-sm" href="s5_pregled.html">Pregled recenzija</a>
+          <a class="btn btn-ghost btn-sm" href="student_recenzije.html#s5_pregled">Pregled recenzija</a>
         </div>
       </div>
     </div>
@@ -76,27 +83,27 @@
       <h3 style="margin-top:0">Alternativni scenariji</h3>
       <p style="color:var(--ink-soft);font-size:13.5px;margin-top:-6px">Edge cases i putanje grešaka opisane u SSU dokumentima.</p>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;font-size:13.5px">
-        <a href="s1_greska.html" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
+        <a href="student_tacke.html#s1_greska" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
           <strong>SSU 1 &mdash; 2.2.4</strong><br>
           <span style="color:var(--ink-soft)">Obavezna polja nisu popunjena</span>
         </a>
-        <a href="s1_brisanje.html" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
+        <a href="student_tacke.html#s1_brisanje" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
           <strong>SSU 1 &mdash; 2.2.3</strong><br>
           <span style="color:var(--ink-soft)">Potvrda brisanja tačke</span>
         </a>
-        <a href="s2_bez_tacaka.html" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
+        <a href="student_tacke.html#s2_bez_tacaka" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
           <strong>SSU 2 &mdash; 2.2.3</strong><br>
           <span style="color:var(--ink-soft)">Nestly Score bez definisanih tačaka</span>
         </a>
-        <a href="s3_prazni.html" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
+        <a href="student_pretraga.html#s3_prazni" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
           <strong>SSU 3 &mdash; 2.2.3</strong><br>
           <span style="color:var(--ink-soft)">Nema nekretina u okviru filtera</span>
         </a>
-        <a href="s4_odbijen.html" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
+        <a href="student_cimeri.html#s4_odbijen" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
           <strong>SSU 4 &mdash; 2.2.3</strong><br>
           <span style="color:var(--ink-soft)">Odbijanje zahteva za uparivanje</span>
         </a>
-        <a href="s5_postoji.html" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
+        <a href="student_recenzije.html#s5_postoji" style="padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink)">
           <strong>SSU 5 &mdash; 2.2.4</strong><br>
           <span style="color:var(--ink-soft)">Pokušaj druge recenzije istog kvarta</span>
         </a>
@@ -104,6 +111,18 @@
     </div>
   </main>
 </div>
+</section>
 
+<script>
+(function () {
+  var DEFAULT = "index";
+  function valid(id) { return id && document.getElementById(id); }
+  if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+  window.addEventListener("hashchange", function () {
+    if (!valid(location.hash.slice(1))) location.replace("#" + DEFAULT);
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
 </body>
 </html>
